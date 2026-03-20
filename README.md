@@ -14,9 +14,11 @@
 
 ## 🎭 ¿Qué es CV Generator?
 CV Generator es una herramienta multiplataforma que convierte un archivo YAML con tus datos personales en un **currículum vitae profesional en formato PDF**. No necesitas saber LaTeX, diseñar plantillas o pagar por servicios costosos.
+
 **¿Por qué "inspirado en Teresa Carreño"?**  
 Porque la gran pianista venezolana necesitaba un CV cuando quiso postularse como "pianista de ensayos" en el Teatro Principal de Caracas. Este proyecto nació de ese ejercicio de imaginación histórica: si Teresa viviera hoy, usaría esta herramienta para organizar sus 400 conciertos de memoria, sus giras internacionales y sus referencias de Lincoln, Gottschalk y Liszt en un solo archivo YAML.
 ---
+
 ## ✨ Características
 ### 📝 **Simple y poderoso**
 - Edita un solo archivo `datos.yaml` con tu información
