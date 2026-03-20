@@ -1,5 +1,6 @@
 # 🎹 CV Generator Professional
 ## Generador Automático de Currículums Vitae
+
 <div align="center">
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
@@ -10,6 +11,7 @@
 *Inspirado en la vida y obra de la gran pianista Teresa Carreño*
 </div>
 ---
+
 ## 🎭 ¿Qué es CV Generator?
 CV Generator es una herramienta multiplataforma que convierte un archivo YAML con tus datos personales en un **currículum vitae profesional en formato PDF**. No necesitas saber LaTeX, diseñar plantillas o pagar por servicios costosos.
 **¿Por qué "inspirado en Teresa Carreño"?**  
@@ -106,6 +108,7 @@ cv-generator-monorepo/
 ├── LICENSE                      # Licencia MIT
 └── README.md                    # Este archivo
 ```
+
 ---
 ## 📝 Ejemplo de `datos.yaml`
 ```yaml
