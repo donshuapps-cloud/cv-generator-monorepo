@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a CV Generator para Edge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --edge-blue: #0078d7;
+            --edge-dark: #1e1e1e;
+            --edge-light: #f5f5f5;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: var(--edge-blue);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .header img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .header .edge-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        .header .edge-badge i {
+            margin-right: 0.5rem;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--edge-blue);
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .edge-features {
+            background: #f0f7ff;
+            border-left: 4px solid var(--edge-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .edge-features h2 {
+            color: var(--edge-blue);
+            margin-bottom: 1rem;
+        }
+        .edge-features ul {
+            list-style: none;
+        }
+        .edge-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .edge-features li i {
+            color: var(--edge-blue);
+            font-size: 1.2rem;
+        }
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--edge-blue);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #005ba1;
+        }
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #dee2e6;
+        }
+        .footer a {
+            color: var(--edge-blue);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../icons/icon128.png" alt="CV Generator Logo">
+            <h1>Generador de CV Profesional</h1>
+            <p>Ahora con características exclusivas para Microsoft Edge</p>
+            <div class="edge-badge">
+                <i class="fab fa-edge"></i> Optimizado para Edge
+            </div>
+        </div>
+        <div class="content">
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Editor YAML</h3>
+                    <p>Edita tus datos fácilmente con resaltado de sintaxis y validación en tiempo real</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Vista previa</h3>
+                    <p>Visualiza cómo quedará tu CV antes de generarlo</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Generación PDF</h3>
+                    <p>Compila automáticamente a PDF con un solo clic</p>
+                </div>
+            </div>
+            <div class="edge-features">
+                <h2><i class="fab fa-edge"></i> Características exclusivas de Edge</h2>
+                <ul>
+                    <li>
+                        <i class="fas fa-layer-group"></i>
+                        <div>
+                            <strong>Integración con Collections</strong>
+                            <p>Guarda tus plantillas y CV directamente en Collections de Edge para acceder desde cualquier dispositivo</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div>
+                            <strong>Soporte para Edge Drop</strong>
+                            <p>Comparte tus CV fácilmente entre tu PC y teléfono usando Edge Drop</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <strong>Sincronización con Microsoft Account</strong>
+                            <p>Tus archivos se sincronizan automáticamente si inicias sesión con tu cuenta Microsoft</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-paint-brush"></i>
+                        <div>
+                            <strong>Tema nativo de Edge</strong>
+                            <p>Interfaz que se adapta al tema de Edge (claro/oscuro)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="#" id="btn-open-editor" class="btn btn-primary">
+                    <i class="fas fa-pen"></i> Comenzar a editar
+                </a>
+                <a href="#" id="btn-learn-more" class="btn btn-secondary">
+                    <i class="fas fa-book"></i> Ver tutorial
+                </a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Desarrollado por <a href="https://github.com/donshuapps-cloud" target="_blank">Donshu</a> | 
+            <a href="https://github.com/donshuapps-cloud/cv-generator-monorepo" target="_blank">Código fuente</a> | 
+            <a href="#" id="btn-close">Cerrar</a></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('btn-open-editor').addEventListener('click', (e) => {
+            e.preventDefault();
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('editor/editor.html?new=true')
+            });
+            window.close();
+        });
+        document.getElementById('btn-learn-more').addEventListener('click', (e) => {
+            e.preventDefault();
+            chrome.tabs.create({
+                url: 'https://github.com/donshuapps-cloud/cv-generator-monorepo/wiki'
+            });
+        });
+        document.getElementById('btn-close').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.close();
+        });
+    </script>
+</body>
+</html>

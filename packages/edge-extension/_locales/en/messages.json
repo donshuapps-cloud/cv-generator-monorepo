@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Professional CV Generator for Edge",
+    "description": "Extension name"
+  },
+  "appDesc": {
+    "message": "Generate professional PDF CVs from YAML. Integrated with Collections and Edge Drop.",
+    "description": "Extension description"
+  }
+}

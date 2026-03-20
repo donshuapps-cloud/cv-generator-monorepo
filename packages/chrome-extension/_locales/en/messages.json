@@ -1,0 +1,47 @@
+{
+  "appName": {
+    "message": "Professional CV Generator"
+  },
+  "appDesc": {
+    "message": "Generate professional PDF CVs from YAML files. Offline and free."
+  },
+  "newCV": {
+    "message": "New CV"
+  },
+  "openEditor": {
+    "message": "Open editor"
+  },
+  "recentFiles": {
+    "message": "Recent files"
+  },
+  "templates": {
+    "message": "Templates"
+  },
+  "basicTemplate": {
+    "message": "Basic"
+  },
+  "technicalTemplate": {
+    "message": "Technical"
+  },
+  "servicesTemplate": {
+    "message": "Services"
+  },
+  "generate": {
+    "message": "Generate"
+  },
+  "downloadPDF": {
+    "message": "Download PDF"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "spanish": {
+    "message": "Spanish"
+  },
+  "english": {
+    "message": "English"
+  }
+}

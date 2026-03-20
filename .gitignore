@@ -1,0 +1,51 @@
+.3.........
+.
+0..0.0..0000000000000022# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+# Archivos de entorno
+.env
+.vscode/
+.idea/
+*.sublime-*
+# Archivos temporales
+*.log
+*.aux
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.tmp
+temp/
+# Archivos de compilación
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+# Dependencias
+node_modules/
+venv/
+env/
+ENV/
+# Archivos de distribución
+dist/
+*.zip
+*.xpi
+*.crx
+*.pem
+# Archivos de configuración local
+*.local
+config.local.*
+# Capturas de pantalla (pero mantener directorio)
+screenshots/*.png
+!screenshots/.gitkeep
+# Archivos de respaldo
+*.backup
+*.bak
+*.swp
+*~

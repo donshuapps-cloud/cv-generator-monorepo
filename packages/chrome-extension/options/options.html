@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones - Generador de CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="options-container">
+        <header class="options-header">
+            <img src="../icons/icon128.png" alt="Logo" class="logo">
+            <h1>Configuración de la extensión</h1>
+        </header>
+        <main class="options-content">
+            <nav class="options-nav">
+                <ul>
+                    <li class="active" data-section="general">
+                        <i class="fas fa-sliders-h"></i> General
+                    </li>
+                    <li data-section="editor">
+                        <i class="fas fa-code"></i> Editor
+                    </li>
+                    <li data-section="templates">
+                        <i class="fas fa-file-alt"></i> Plantillas
+                    </li>
+                    <li data-section="storage">
+                        <i class="fas fa-database"></i> Almacenamiento
+                    </li>
+                    <li data-section="about">
+                        <i class="fas fa-info-circle"></i> Acerca de
+                    </li>
+                </ul>
+            </nav>
+            <div class="options-panels">
+                <!-- General -->
+                <div class="panel active" id="panel-general">
+                    <h2>Configuración general</h2>
+                    <div class="option-group">
+                        <label>
+                            <span>Idioma</span>
+                            <select id="language">
+                                <option value="es">Español</option>
+                                <option value="en">English</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="auto-save">
+                            <span>Guardar automáticamente al cerrar</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <span>Tema</span>
+                            <select id="theme">
+                                <option value="light">Claro</option>
+                                <option value="dark">Oscuro</option>
+                                <option value="system">Sistema</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <span>Plantilla por defecto</span>
+                            <select id="default-template">
+                                <option value="basico">Básica</option>
+                                <option value="tecnico">Técnica</option>
+                                <option value="servicios">Servicios</option>
+                                <option value="vacio">Vacía</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <!-- Editor -->
+                <div class="panel" id="panel-editor">
+                    <h2>Configuración del editor</h2>
+                    <div class="option-group">
+                        <label>
+                            <span>Tamaño de fuente</span>
+                            <select id="font-size">
+                                <option value="12">12px</option>
+                                <option value="13">13px</option>
+                                <option value="14">14px</option>
+                                <option value="16">16px</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <span>Tabulación</span>
+                            <select id="tab-size">
+                                <option value="2">2 espacios</option>
+                                <option value="4">4 espacios</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="line-numbers">
+                            <span>Mostrar números de línea</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="word-wrap">
+                            <span>Dividir líneas largas</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="auto-complete">
+                            <span>Autocompletado</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Plantillas -->
+                <div class="panel" id="panel-templates">
+                    <h2>Plantillas personalizadas</h2>
+                    <p class="description">Puedes añadir tus propias plantillas YAML aquí.</p>
+                    <div class="template-list" id="template-list">
+                        <!-- Lista dinámica -->
+                    </div>
+                    <button id="add-template" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Añadir plantilla
+                    </button>
+                </div>
+                <!-- Almacenamiento -->
+                <div class="panel" id="panel-storage">
+                    <h2>Almacenamiento local</h2>
+                    <div class="storage-info">
+                        <p><i class="fas fa-database"></i> <span id="storage-used">0 MB</span> usado de <span id="storage-quota">0 MB</span></p>
+                        <div class="storage-bar">
+                            <div id="storage-bar-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="storage-actions">
+                        <button id="export-data" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Exportar datos
+                        </button>
+                        <button id="import-data" class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Importar datos
+                        </button>
+                        <button id="clear-data" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Limpiar todo
+                        </button>
+                    </div>
+                    <h3>Archivos recientes</h3>
+                    <div class="file-list" id="file-list"></div>
+                </div>
+                <!-- Acerca de -->
+                <div class="panel" id="panel-about">
+                    <h2>Generador de CV Profesional</h2>
+                    <p><strong>Versión:</strong> 1.0.0</p>
+                    <p><strong>Desarrollado por:</strong> Donshu</p>
+                    <p><strong>Email:</strong> donshu.apps@gmail.com</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/donshuapps-cloud" target="_blank">@donshuapps-cloud</a></p>
+                    <hr>
+                    <h3>Licencia</h3>
+                    <p>MIT License - Copyright (c) 2026</p>
+                    <h3>Dependencias</h3>
+                    <ul>
+                        <li>CodeMirror - Editor de código</li>
+                        <li>js-yaml - Parseador YAML</li>
+                        <li>Pyodide - Python en WebAssembly</li>
+                        <li>Font Awesome - Iconos</li>
+                    </ul>
+                    <hr>
+                    <button id="check-updates" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Buscar actualizaciones
+                    </button>
+                </div>
+            </div>
+        </main>
+        <footer class="options-footer">
+            <button id="save-settings" class="btn btn-primary">
+                <i class="fas fa-save"></i> Guardar cambios
+            </button>
+            <button id="reset-settings" class="btn btn-secondary">
+                <i class="fas fa-undo"></i> Restablecer
+            </button>
+        </footer>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

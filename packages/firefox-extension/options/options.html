@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>__MSG_options__</title>
+    <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="options-container">
+        <header class="options-header">
+            <img src="../icons/icon48.png" alt="Logo" class="logo">
+            <h1>__MSG_optionsTitle__</h1>
+        </header>
+        <main class="options-content">
+            <nav class="options-nav">
+                <ul>
+                    <li class="active" data-section="general">
+                        <i class="fas fa-sliders-h"></i> __MSG_general__
+                    </li>
+                    <li data-section="editor">
+                        <i class="fas fa-code"></i> __MSG_editor__
+                    </li>
+                    <li data-section="storage">
+                        <i class="fas fa-database"></i> __MSG_storage__
+                    </li>
+                    <li data-section="about">
+                        <i class="fas fa-info-circle"></i> __MSG_about__
+                    </li>
+                </ul>
+            </nav>
+            <div class="options-panels">
+                <div class="panel active" id="panel-general">
+                    <h2>__MSG_general__</h2>
+                    <div class="option-group">
+                        <label>
+                            <span>__MSG_language__</span>
+                            <select id="language">
+                                <option value="es">__MSG_spanish__</option>
+                                <option value="en">__MSG_english__</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="auto-save">
+                            <span>__MSG_autoSave__</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <span>__MSG_theme__</span>
+                            <select id="theme">
+                                <option value="light">__MSG_light__</option>
+                                <option value="dark">__MSG_dark__</option>
+                                <option value="system">__MSG_system__</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="panel" id="panel-editor">
+                    <h2>__MSG_editor__</h2>
+                    <div class="option-group">
+                        <label>
+                            <span>__MSG_fontSize__</span>
+                            <select id="font-size">
+                                <option value="12">12px</option>
+                                <option value="13">13px</option>
+                                <option value="14">14px</option>
+                                <option value="16">16px</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <span>__MSG_tabSize__</span>
+                            <select id="tab-size">
+                                <option value="2">2 __MSG_spaces__</option>
+                                <option value="4">4 __MSG_spaces__</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="panel" id="panel-storage">
+                    <h2>__MSG_storage__</h2>
+                    <div class="storage-info">
+                        <p><i class="fas fa-database"></i> <span id="storage-used">0 MB</span> __MSG_used__</p>
+                        <div class="storage-bar">
+                            <div id="storage-bar-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="storage-actions">
+                        <button id="export-data" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> __MSG_export__
+                        </button>
+                        <button id="import-data" class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> __MSG_import__
+                        </button>
+                        <button id="clear-data" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> __MSG_clearAll__
+                        </button>
+                    </div>
+                </div>
+                <div class="panel" id="panel-about">
+                    <h2>__MSG_about__</h2>
+                    <p><strong>__MSG_version__:</strong> 1.0.0</p>
+                    <p><strong>__MSG_author__:</strong> Donshu</p>
+                    <p><strong>__MSG_email__:</strong> donshu.apps@gmail.com</p>
+                    <p><strong>GitHub:</strong> @donshuapps-cloud</p>
+                    <hr>
+                    <p>__MSG_license__: MIT</p>
+                    <button id="check-updates" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> __MSG_checkUpdates__
+                    </button>
+                </div>
+            </div>
+        </main>
+        <footer class="options-footer">
+            <button id="save-settings" class="btn btn-primary">
+                <i class="fas fa-save"></i> __MSG_save__
+            </button>
+            <button id="reset-settings" class="btn btn-secondary">
+                <i class="fas fa-undo"></i> __MSG_reset__
+            </button>
+        </footer>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

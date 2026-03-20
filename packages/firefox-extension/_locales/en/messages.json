@@ -1,0 +1,125 @@
+{
+  "appName": {
+    "message": "Professional CV Generator"
+  },
+  "appDesc": {
+    "message": "Generate professional PDF CVs from YAML files. Works offline."
+  },
+  "newCV": {
+    "message": "New CV"
+  },
+  "openEditor": {
+    "message": "Open editor"
+  },
+  "loadYAML": {
+    "message": "Load YAML"
+  },
+  "recentFiles": {
+    "message": "Recent files"
+  },
+  "noRecent": {
+    "message": "No recent files"
+  },
+  "templates": {
+    "message": "Templates"
+  },
+  "basicTemplate": {
+    "message": "Basic"
+  },
+  "technicalTemplate": {
+    "message": "Technical"
+  },
+  "servicesTemplate": {
+    "message": "Services"
+  },
+  "emptyTemplate": {
+    "message": "Empty"
+  },
+  "ready": {
+    "message": "Ready"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "optionsTitle": {
+    "message": "Extension Settings"
+  },
+  "general": {
+    "message": "General"
+  },
+  "editor": {
+    "message": "Editor"
+  },
+  "storage": {
+    "message": "Storage"
+  },
+  "about": {
+    "message": "About"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "spanish": {
+    "message": "Spanish"
+  },
+  "english": {
+    "message": "English"
+  },
+  "autoSave": {
+    "message": "Auto save"
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "light": {
+    "message": "Light"
+  },
+  "dark": {
+    "message": "Dark"
+  },
+  "system": {
+    "message": "System"
+  },
+  "fontSize": {
+    "message": "Font size"
+  },
+  "tabSize": {
+    "message": "Tab size"
+  },
+  "spaces": {
+    "message": "spaces"
+  },
+  "used": {
+    "message": "used"
+  },
+  "export": {
+    "message": "Export data"
+  },
+  "import": {
+    "message": "Import data"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "version": {
+    "message": "Version"
+  },
+  "author": {
+    "message": "Author"
+  },
+  "email": {
+    "message": "Email"
+  },
+  "license": {
+    "message": "License"
+  },
+  "checkUpdates": {
+    "message": "Check for updates"
+  },
+  "save": {
+    "message": "Save changes"
+  },
+  "reset": {
+    "message": "Reset"
+  }
+}

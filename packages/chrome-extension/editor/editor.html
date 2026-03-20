@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de CV - Generador Profesional</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material-darker.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra de herramientas superior -->
+        <header class="toolbar">
+            <div class="toolbar-left">
+                <button id="btn-menu" class="toolbar-btn" title="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="app-title">
+                    <img src="../icons/icon48.png" alt="Logo" class="title-logo">
+                    Generador de CV Profesional
+                </h1>
+            </div>
+            <div class="toolbar-center">
+                <div class="file-info" id="file-info">
+                    <i class="fas fa-file-alt"></i>
+                    <span id="filename">datos.yaml</span>
+                </div>
+            </div>
+            <div class="toolbar-right">
+                <button id="btn-validar" class="toolbar-btn" title="Validar YAML">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="btn-text">Validar</span>
+                </button>
+                <button id="btn-generar" class="toolbar-btn btn-primary" title="Generar CV">
+                    <i class="fas fa-play"></i>
+                    <span class="btn-text">Generar</span>
+                </button>
+                <button id="btn-descargar-pdf" class="toolbar-btn btn-success" title="Descargar PDF" disabled>
+                    <i class="fas fa-download"></i>
+                    <span class="btn-text">PDF</span>
+                </button>
+                <button id="btn-menu-mas" class="toolbar-btn" title="Más opciones">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+        </header>
+        <!-- Menú desplegable -->
+        <div id="dropdown-menu" class="dropdown-menu hidden">
+            <ul>
+                <li><button id="menu-nuevo"><i class="fas fa-plus"></i> Nuevo</button></li>
+                <li><button id="menu-abrir"><i class="fas fa-folder-open"></i> Abrir</button></li>
+                <li><button id="menu-guardar"><i class="fas fa-save"></i> Guardar</button></li>
+                <li><button id="menu-guardar-como"><i class="fas fa-save"></i> Guardar como...</button></li>
+                <li><hr></li>
+                <li><button id="menu-exportar-latex"><i class="fas fa-file-code"></i> Exportar LaTeX</button></li>
+                <li><button id="menu-exportar-pdf"><i class="fas fa-file-pdf"></i> Exportar PDF</button></li>
+                <li><hr></li>
+                <li><button id="menu-plantilla-basica"><i class="fas fa-user"></i> Plantilla básica</button></li>
+                <li><button id="menu-plantilla-tecnica"><i class="fas fa-code"></i> Plantilla técnica</button></li>
+                <li><button id="menu-plantilla-servicios"><i class="fas fa-broom"></i> Plantilla servicios</button></li>
+                <li><hr></li>
+                <li><button id="menu-ayuda"><i class="fas fa-question-circle"></i> Ayuda</button></li>
+                <li><button id="menu-acerca"><i class="fas fa-info-circle"></i> Acerca de</button></li>
+            </ul>
+        </div>
+        <!-- Panel principal -->
+        <main class="main-panel">
+            <!-- Editor YAML -->
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-code"></i>
+                        <h2>datos.yaml</h2>
+                    </div>
+                    <div class="panel-status">
+                        <span id="yaml-status" class="status-badge success">
+                            <i class="fas fa-check"></i> Válido
+                        </span>
+                        <span id="cursor-position" class="cursor-pos">Ln 1, Col 1</span>
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <textarea id="yaml-editor"></textarea>
+                </div>
+            </div>
+            <!-- Panel de vista previa y resultados -->
+            <div class="preview-panel">
+                <div class="panel-tabs">
+                    <button class="tab-btn active" data-tab="preview">
+                        <i class="fas fa-eye"></i> Vista previa
+                    </button>
+                    <button class="tab-btn" data-tab="pdf">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </button>
+                    <button class="tab-btn" data-tab="latex">
+                        <i class="fas fa-file-code"></i> LaTeX
+                    </button>
+                    <button class="tab-btn" data-tab="console">
+                        <i class="fas fa-terminal"></i> Consola
+                    </button>
+                </div>
+                <!-- Pestaña: Vista previa -->
+                <div class="tab-content active" id="tab-preview">
+                    <div class="preview-card" id="preview-content">
+                        <!-- Generado dinámicamente -->
+                        <div class="preview-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Cargando vista previa...</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pestaña: PDF -->
+                <div class="tab-content" id="tab-pdf">
+                    <div class="pdf-container">
+                        <div id="pdf-viewer" class="pdf-viewer">
+                            <div class="pdf-placeholder">
+                                <i class="fas fa-file-pdf fa-4x"></i>
+                                <p>Genera el CV para ver el PDF</p>
+                                <button id="pdf-generar" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-play"></i> Generar ahora
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pdf-controls">
+                            <button id="pdf-prev" disabled><i class="fas fa-chevron-left"></i></button>
+                            <span id="pdf-page">1 / 1</span>
+                            <button id="pdf-next" disabled><i class="fas fa-chevron-right"></i></button>
+                            <button id="pdf-descargar" disabled class="btn-success">
+                                <i class="fas fa-download"></i> Descargar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pestaña: LaTeX -->
+                <div class="tab-content" id="tab-latex">
+                    <div class="latex-container">
+                        <div class="latex-header">
+                            <h3>Código LaTeX generado</h3>
+                            <div>
+                                <button id="btn-copiar-latex" class="btn btn-secondary btn-sm">
+                                    <i class="far fa-copy"></i> Copiar
+                                </button>
+                                <button id="btn-descargar-latex" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Descargar
+                                </button>
+                            </div>
+                        </div>
+                        <pre id="latex-code" class="latex-code">// Código LaTeX aparecerá aquí</pre>
+                    </div>
+                </div>
+                <!-- Pestaña: Consola -->
+                <div class="tab-content" id="tab-console">
+                    <div class="console-container">
+                        <div class="console-header">
+                            <h3><i class="fas fa-terminal"></i> Log de generación</h3>
+                            <button id="btn-limpiar-console" class="btn-icon">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        <div id="console-output" class="console-output">
+                            <div class="log-entry info">
+                                <span class="log-time">[12:00:00]</span>
+                                <span class="log-msg">Bienvenido al generador de CV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Barra de estado inferior -->
+        <footer class="status-bar">
+            <div class="status-left">
+                <span id="pyodide-status">
+                    <i class="fas fa-circle text-warning"></i> Iniciando Pyodide...
+                </span>
+            </div>
+            <div class="status-center">
+                <span id="progress" class="progress-text"></span>
+            </div>
+            <div class="status-right">
+                <span id="memory-usage">
+                    <i class="fas fa-memory"></i> 0 MB
+                </span>
+            </div>
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/yaml/yaml.min.js"></script>
+    <script src="../lib/js-yaml.min.js"></script>
+    <script src="../lib/FileSaver.min.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>

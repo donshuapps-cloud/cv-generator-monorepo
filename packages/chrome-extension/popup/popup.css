@@ -1,0 +1,205 @@
+:root {
+    --primary: #0E5484;
+    --primary-dark: #0a3a5c;
+    --secondary: #4a5568;
+    --success: #2e7d32;
+    --light: #f7fafc;
+    --dark: #2d3748;
+    --gray: #a0aec0;
+    --border: #e2e8f0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: white;
+    width: 380px;
+    min-height: 500px;
+}
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.popup-header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+.popup-header h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.popup-content {
+    flex: 1;
+    padding: 1rem;
+}
+.recent-files {
+    margin-bottom: 1.5rem;
+}
+.recent-files h3 {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.recent-list {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 0.5rem;
+    max-height: 120px;
+    overflow-y: auto;
+}
+.recent-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.recent-item:hover {
+    background: rgba(14, 84, 132, 0.1);
+}
+.recent-item:last-child {
+    border-bottom: none;
+}
+.recent-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.recent-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.recent-date {
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+.recent-delete {
+    color: var(--gray);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+.recent-delete:hover {
+    color: #c62828;
+}
+.empty-state {
+    color: var(--gray);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.btn {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+.btn-secondary {
+    background: var(--light);
+    border: 1px solid var(--border);
+    color: var(--dark);
+}
+.btn-secondary:hover {
+    background: #edf2f7;
+}
+.templates h3 {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+.template-item {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 0.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.template-item:hover {
+    border-color: var(--primary);
+    background: white;
+}
+.template-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.template-item span {
+    font-size: 0.7rem;
+    color: var(--dark);
+}
+.popup-footer {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light);
+}
+.status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--success);
+}
+.status i {
+    font-size: 0.6rem;
+}
+.footer-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.footer-link:hover {
+    color: var(--primary);
+}

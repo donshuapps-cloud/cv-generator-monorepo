@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_appName__",
+  "version": "1.0.0",
+  "description": "__MSG_appDesc__",
+  "author": "Donshu",
+  "homepage_url": "https://github.com/donshuapps-cloud/cv-generator-monorepo",
+  "default_locale": "es",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png"
+  },
+  "permissions": [
+    "storage",
+    "downloads",
+    "unlimitedStorage",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_title": "__MSG_appName__",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png"
+    },
+    "theme_icons": [{
+      "light": "icons/icon16.png",
+      "dark": "icons/icon16.png",
+      "size": 16
+    }, {
+      "light": "icons/icon32.png",
+      "dark": "icons/icon32.png",
+      "size": 32
+    }]
+  },
+  "background": {
+    "scripts": ["background/background.js"],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true,
+    "open_in_tab": false
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cv-generator@donshu.apps",
+      "strict_min_version": "78.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' blob:; object-src 'self'",
+  "web_accessible_resources": [
+    "editor/*",
+    "lib/*"
+  ]
+}

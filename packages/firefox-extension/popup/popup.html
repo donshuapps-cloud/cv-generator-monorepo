@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>__MSG_appName__</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <img src="../icons/icon48.png" alt="Logo" class="logo">
+            <h1>__MSG_appName__</h1>
+        </header>
+        <main class="popup-content">
+            <div class="recent-files">
+                <h3><i class="fas fa-history"></i> __MSG_recentFiles__</h3>
+                <div id="recent-list" class="recent-list">
+                    <p class="empty-state">__MSG_noRecent__</p>
+                </div>
+            </div>
+            <div class="quick-actions">
+                <button id="btn-nuevo" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> __MSG_newCV__
+                </button>
+                <button id="btn-editar" class="btn btn-secondary">
+                    <i class="fas fa-pen"></i> __MSG_openEditor__
+                </button>
+                <button id="btn-cargar" class="btn btn-secondary">
+                    <i class="fas fa-folder-open"></i> __MSG_loadYAML__
+                </button>
+            </div>
+            <div class="templates">
+                <h3><i class="fas fa-file"></i> __MSG_templates__</h3>
+                <div class="template-grid">
+                    <div class="template-item" data-template="basico">
+                        <i class="fas fa-user"></i>
+                        <span>__MSG_basicTemplate__</span>
+                    </div>
+                    <div class="template-item" data-template="tecnico">
+                        <i class="fas fa-code"></i>
+                        <span>__MSG_technicalTemplate__</span>
+                    </div>
+                    <div class="template-item" data-template="servicios">
+                        <i class="fas fa-broom"></i>
+                        <span>__MSG_servicesTemplate__</span>
+                    </div>
+                    <div class="template-item" data-template="vacio">
+                        <i class="fas fa-file"></i>
+                        <span>__MSG_emptyTemplate__</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="popup-footer">
+            <div class="status" id="status">
+                <i class="fas fa-circle"></i> __MSG_ready__
+            </div>
+            <a href="#" id="open-options" class="footer-link">
+                <i class="fas fa-cog"></i>
+            </a>
+        </footer>
+    </div>
+    <script src="../lib/js-yaml.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

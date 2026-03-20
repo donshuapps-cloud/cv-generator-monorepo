@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de CV · Donshu Apps</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CodeMirror para edición YAML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material-darker.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Cabecera -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>
+                    <i class="fas fa-file-alt"></i>
+                    Generador Automático de CV
+                </h1>
+                <p class="subtitle">De YAML a PDF profesional en segundos</p>
+                <div class="badges">
+                    <span class="badge"><i class="fas fa-check-circle"></i> Sin instalación</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Multiplataforma</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Gratuito</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="btn-cargar-ejemplo" class="btn btn-secondary">
+                    <i class="fas fa-file-import"></i> Cargar ejemplo
+                </button>
+                <button id="btn-generar" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Generar CV
+                </button>
+                <button id="btn-descargar-pdf" class="btn btn-success" disabled>
+                    <i class="fas fa-download"></i> Descargar PDF
+                </button>
+            </div>
+        </header>
+        <!-- Panel principal -->
+        <main class="main-panel">
+            <!-- Columna izquierda: Editor YAML -->
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-code"></i> datos.yaml</h2>
+                    <div class="panel-actions">
+                        <span id="yaml-status" class="status-badge success">
+                            <i class="fas fa-check"></i> YAML válido
+                        </span>
+                        <button id="btn-copiar" class="btn-icon" title="Copiar YAML">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <button id="btn-descargar-yaml" class="btn-icon" title="Descargar YAML">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="yaml-editor"><!-- YAML por defecto cargado vía JS --></textarea>
+                </div>
+            </div>
+            <!-- Columna derecha: Previsualización y PDF -->
+            <div class="preview-panel">
+                <div class="panel-tabs">
+                    <button class="tab-btn active" data-tab="preview">
+                        <i class="fas fa-eye"></i> Vista previa
+                    </button>
+                    <button class="tab-btn" data-tab="pdf">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </button>
+                    <button class="tab-btn" data-tab="latex">
+                        <i class="fas fa-file-code"></i> LaTeX
+                    </button>
+                </div>
+                <div class="tab-content active" id="tab-preview">
+                    <div class="preview-card">
+                        <!-- Datos personales -->
+                        <div class="preview-header">
+                            <div class="preview-photo" id="preview-foto">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="preview-title">
+                                <h3 id="preview-nombre">Cargando...</h3>
+                                <p id="preview-puesto" class="text-muted"></p>
+                            </div>
+                        </div>
+                        <!-- Info personal -->
+                        <div class="preview-info-grid">
+                            <div class="info-item"><i class="fas fa-id-card"></i> <span id="preview-cedula">-</span></div>
+                            <div class="info-item"><i class="fas fa-flag"></i> <span id="preview-nacionalidad">-</span></div>
+                            <div class="info-item"><i class="fas fa-calendar"></i> <span id="preview-fecha-nac">-</span></div>
+                            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span id="preview-direccion">-</span></div>
+                            <div class="info-item"><i class="fas fa-phone"></i> <span id="preview-telefono">-</span></div>
+                            <div class="info-item"><i class="fas fa-envelope"></i> <span id="preview-email">-</span></div>
+                        </div>
+                        <!-- Perfil -->
+                        <div class="preview-section">
+                            <h4>Perfil Profesional</h4>
+                            <p id="preview-perfil" class="text-justify"></p>
+                        </div>
+                        <!-- Habilidades (barras de progreso) -->
+                        <div class="preview-section">
+                            <h4>Habilidades</h4>
+                            <div id="preview-habilidades" class="skills-container"></div>
+                        </div>
+                        <!-- Experiencia -->
+                        <div class="preview-section">
+                            <h4>Experiencia Laboral</h4>
+                            <div id="preview-experiencia"></div>
+                        </div>
+                        <!-- Educación -->
+                        <div class="preview-section">
+                            <h4>Educación</h4>
+                            <div id="preview-educacion"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-pdf">
+                    <div class="pdf-container">
+                        <div id="pdf-viewer" class="pdf-viewer">
+                            <div class="pdf-placeholder">
+                                <i class="fas fa-file-pdf fa-4x"></i>
+                                <p>Genera el CV para ver el PDF</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-latex">
+                    <div class="latex-container">
+                        <pre id="latex-code" class="latex-code">// Código LaTeX generado</pre>
+                        <button id="btn-copiar-latex" class="btn btn-secondary btn-sm">
+                            <i class="far fa-copy"></i> Copiar LaTeX
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Panel de logs -->
+        <footer class="log-panel">
+            <div class="log-header" onclick="toggleLogs()">
+                <i class="fas fa-terminal"></i>
+                <span>Log de generación</span>
+                <i class="fas fa-chevron-down" id="log-arrow"></i>
+            </div>
+            <div id="log-content" class="log-content">
+                <div class="log-entry info">
+                    <span class="log-time">[12:00:00]</span>
+                    <span class="log-msg">Bienvenido al generador de CV</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/yaml/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Módulos de la aplicación -->
+    <script src="js/yaml-editor.js"></script>
+    <script src="js/latex-generator.js"></script>
+    <script src="js/pdf-viewer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

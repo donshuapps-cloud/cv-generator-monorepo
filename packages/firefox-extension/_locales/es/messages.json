@@ -1,0 +1,127 @@
+{
+  "appName": {
+    "message": "Generador de CV Profesional",
+    "description": "Nombre de la extensión"
+  },
+  "appDesc": {
+    "message": "Genera CV profesionales en PDF desde un archivo YAML. Funciona offline.",
+    "description": "Descripción de la extensión"
+  },
+  "newCV": {
+    "message": "Nuevo CV"
+  },
+  "openEditor": {
+    "message": "Abrir editor"
+  },
+  "loadYAML": {
+    "message": "Cargar YAML"
+  },
+  "recentFiles": {
+    "message": "Archivos recientes"
+  },
+  "noRecent": {
+    "message": "No hay archivos recientes"
+  },
+  "templates": {
+    "message": "Plantillas"
+  },
+  "basicTemplate": {
+    "message": "Básica"
+  },
+  "technicalTemplate": {
+    "message": "Técnica"
+  },
+  "servicesTemplate": {
+    "message": "Servicios"
+  },
+  "emptyTemplate": {
+    "message": "Vacía"
+  },
+  "ready": {
+    "message": "Listo"
+  },
+  "options": {
+    "message": "Opciones"
+  },
+  "optionsTitle": {
+    "message": "Configuración de la extensión"
+  },
+  "general": {
+    "message": "General"
+  },
+  "editor": {
+    "message": "Editor"
+  },
+  "storage": {
+    "message": "Almacenamiento"
+  },
+  "about": {
+    "message": "Acerca de"
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "spanish": {
+    "message": "Español"
+  },
+  "english": {
+    "message": "Inglés"
+  },
+  "autoSave": {
+    "message": "Guardar automáticamente"
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "light": {
+    "message": "Claro"
+  },
+  "dark": {
+    "message": "Oscuro"
+  },
+  "system": {
+    "message": "Sistema"
+  },
+  "fontSize": {
+    "message": "Tamaño de fuente"
+  },
+  "tabSize": {
+    "message": "Tabulación"
+  },
+  "spaces": {
+    "message": "espacios"
+  },
+  "used": {
+    "message": "usado"
+  },
+  "export": {
+    "message": "Exportar datos"
+  },
+  "import": {
+    "message": "Importar datos"
+  },
+  "clearAll": {
+    "message": "Limpiar todo"
+  },
+  "version": {
+    "message": "Versión"
+  },
+  "author": {
+    "message": "Autor"
+  },
+  "email": {
+    "message": "Email"
+  },
+  "license": {
+    "message": "Licencia"
+  },
+  "checkUpdates": {
+    "message": "Buscar actualizaciones"
+  },
+  "save": {
+    "message": "Guardar cambios"
+  },
+  "reset": {
+    "message": "Restablecer"
+  }
+}
