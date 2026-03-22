@@ -1,14 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Curriculum Vitae Timeline/CV - Versión en Español
-% Adaptado para perfiles laborales de nivel medio en Venezuela
-% Versión: 7.8 - CORREGIDO: iconos estándar de fontawesome
+% Versión: 8.0 - CORREGIDA (manejo de foto opcional)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \ProvidesClass{twentysecondcv-espanol}[2024/01/08 CV class en Español]
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
+
 %----------------------------------------------------------------------------------------
 %	 PAQUETES REQUERIDOS
 %----------------------------------------------------------------------------------------
+
 \RequirePackage[sfdefault]{ClearSans}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
@@ -27,55 +29,66 @@
 \RequirePackage{pgf}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
-\RequirePackage{filecontents}
 \RequirePackage{adjustbox}
 \RequirePackage{enumitem}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
+
 \usetikzlibrary{calc}
 \newsavebox\mybox
 \newlength{\timelinewidth}
 \setlength{\timelinewidth}{0.8cm}
+
 %----------------------------------------------------------------------------------------
 %	 COLORES
 %----------------------------------------------------------------------------------------
+
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
+
 %----------------------------------------------------------------------------------------
 %	 CONFIGURACIONES GENERALES
 %----------------------------------------------------------------------------------------
+
 \renewcommand{\textbf}[1]{{\textcolor{gray}#1}}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-% Comando para listas de intereses
+
 \newcommand{\interestList}[2][ $\cdot$ ]{%
   \def\nextitem{\def\nextitem{#1}}%
   \@for \el:=#2\do{\nextitem\el}%
 }
-% Comando para crear listas con viñetas
+
 \newcommand{\makeList}[1]{%
 \vspace{-0.3em}
 \begin{itemize}[leftmargin=*, nosep, topsep=0pt, partopsep=0pt]
 \ls{#1}
 \end{itemize}
 }
+
 \def\ls#1{\lsA#1;;}
 \def\lsA#1;{\ifx;#1;\else \dosomething{#1}\expandafter\lsA\fi}
 \def\dosomething#1{\item #1}
+
 %----------------------------------------------------------------------------------------
 %	 DEFINICIONES DE LA BARRA LATERAL
 %----------------------------------------------------------------------------------------
+
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
+
 \newlength\imagewidth
 \newlength\imagescale
 \pgfmathsetlength{\imagewidth}{4.2cm}
 \pgfmathsetlength{\imagescale}{\imagewidth/600}
+
 \newlength{\TotalSectionLength}
 \newlength{\SectionTitleLength}
+
 \newcommand{\profilesection}[1]{%
 	\setlength\TotalSectionLength{\linewidth}%
 	\settowidth{\SectionTitleLength}{\large #1 }%
@@ -85,6 +98,7 @@
 	{\color{black!80} \large #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}%
 	\vspace{2pt}%
 }
+
 % Variables booleanas
 \newboolean{cv@sobremi}
 \setboolean{cv@sobremi}{false}
@@ -92,19 +106,35 @@
 \setboolean{cv@intereses}{false}
 \newboolean{cv@perfil}
 \setboolean{cv@perfil}{false}
-% COMANDOS PARA INFORMACIÓN PERSONAL
-\newcommand{\cvnombre}[1]{\renewcommand{\cvnombre}{#1}}
-\newcommand{\cvpuesto}[1]{\renewcommand{\cvpuesto}{#1}}
-\newcommand{\cvcedula}[1]{\renewcommand{\cvcedula}{#1}}
-\newcommand{\cvnacionalidad}[1]{\renewcommand{\cvnacionalidad}{#1}}
-\newcommand{\cvfecha}[1]{\renewcommand{\cvfecha}{#1}}
-\newcommand{\cvdireccion}[1]{\renewcommand{\cvdireccion}{#1}}
-\newcommand{\cvtelefono}[1]{\renewcommand{\cvtelefono}{#1}}
-\newcommand{\cvemail}[1]{\renewcommand{\cvemail}{#1}}
-\newcommand{\cvsitio}[1]{\renewcommand{\cvsitio}{#1}}
-\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
-\newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
-\newcommand{\fotoperfil}[1]{\renewcommand{\fotoperfil}{#1}}
+
+% COMANDOS PARA INFORMACIÓN PERSONAL - CORREGIDOS
+\newcommand{\cvnombre}[1]{\def\cvnombre{#1}}
+\newcommand{\cvpuesto}[1]{\def\cvpuesto{#1}}
+\newcommand{\cvcedula}[1]{\def\cvcedula{#1}}
+\newcommand{\cvnacionalidad}[1]{\def\cvnacionalidad{#1}}
+\newcommand{\cvfecha}[1]{\def\cvfecha{#1}}
+\newcommand{\cvdireccion}[1]{\def\cvdireccion{#1}}
+\newcommand{\cvtelefono}[1]{\def\cvtelefono{#1}}
+\newcommand{\cvemail}[1]{\def\cvemail{#1}}
+\newcommand{\cvsitio}[1]{\def\cvsitio{#1}}
+\newcommand{\cvgithub}[1]{\def\cvgithub{#1}}
+\newcommand{\cvlinkedin}[1]{\def\cvlinkedin{#1}}
+\newcommand{\fotoperfil}[1]{\def\fotoperfil{#1}}
+
+% Valores por defecto
+\def\cvnombre{}
+\def\cvpuesto{}
+\def\cvcedula{}
+\def\cvnacionalidad{}
+\def\cvfecha{}
+\def\cvdireccion{}
+\def\cvtelefono{}
+\def\cvemail{}
+\def\cvsitio{}
+\def\cvgithub{}
+\def\cvlinkedin{}
+\def\fotoperfil{}
+
 % Comandos para secciones de texto
 \newcommand{\sobremi}[2]{\setboolean{cv@sobremi}{true}\renewcommand{\sobremi}{%
 \begin{minipage}{\linewidth}
@@ -115,6 +145,7 @@
 \end{minipage}
 \vspace{8pt}
 }}
+
 \newcommand{\intereses}[2]{\setboolean{cv@intereses}{true}\renewcommand{\intereses}{%
 \begin{minipage}{\linewidth}
 \profilesection{#1}
@@ -124,6 +155,7 @@
 \end{minipage}
 \vspace{8pt}
 }}
+
 \newcommand{\perfil}[2]{\setboolean{cv@perfil}{true}\renewcommand{\perfil}{%
 \begin{minipage}{\linewidth}
 \profilesection{#1}
@@ -133,9 +165,9 @@
 \end{minipage}
 \vspace{8pt}
 }}
-% Comando para iconos de contacto - USANDO SOLO ICONOS EXISTENTES
+
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.3pt, fill=mainblue,mainblue,text=white, font=\tiny] (char) {#1};}}
-% Comando para barras de habilidades
+
 \newcommand\habilidades[1]{ 
 	\renewcommand{\habilidades}{
 		\begin{minipage}{\linewidth}
@@ -163,7 +195,7 @@
 		\vspace{8pt}
 	}
 }
-% Comando para línea de tiempo
+
 \def\timeline#1#2#3#4#5{
     \begin{minipage}[c]{\timelinewidth}
         \centering
@@ -174,16 +206,32 @@
         \end{tikzpicture}
     \end{minipage}
 }
+
 %----------------------------------------------------------------------------------------
-%	 CONSTRUCCIÓN DE LA BARRA LATERAL
+%	 CONSTRUCCIÓN DE LA BARRA LATERAL - CORREGIDA
 %----------------------------------------------------------------------------------------
+
 \newcommand{\crearperfil}{
 	\begin{tikzpicture}[remember picture,overlay]
    		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
 	\end{tikzpicture}
+
 	\begin{textblock}{6}(0.5, 0.1)
-		% Foto de perfil
-		\ifthenelse{\equal{\fotoperfil}{}}{}{
+			
+		% Foto de perfil - CORREGIDO: verifica que no esté vacío
+		\ifx\fotoperfil\empty
+			% No hay foto, mostrar placeholder
+			\begin{center}
+				\begin{minipage}{0.9\linewidth}
+					\begin{center}
+						\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+							\clip (600/2, 567/2) circle (567/2);
+							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{placeholder}};
+						\end{tikzpicture}
+					\end{center}
+				\end{minipage}
+			\end{center}
+		\else
 			\begin{center}
 				\begin{minipage}{0.9\linewidth}
 					\begin{center}
@@ -194,8 +242,9 @@
 					\end{center}
 				\end{minipage}
 			\end{center}
-			\vspace{0.2cm}
-		}
+		\fi
+		\vspace{0.2cm}
+
 		% Nombre y puesto
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
@@ -203,64 +252,66 @@
 					{\Large\color{mainblue}\cvnombre\par}
 				\end{center}
 			\end{minipage}
+			
 			\vspace{0.15cm}
+			
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
 					{\large\color{black!80}\cvpuesto\par}
 				\end{center}
 			\end{minipage}
 		\end{center}
+		
 		\vspace{0.3cm}
-		%============================================================
-		% INFORMACIÓN DE CONTACTO - CON ICONOS ESTÁNDAR
-		%============================================================
+
+		% INFORMACIÓN DE CONTACTO
 		\begin{minipage}{\linewidth}
 			\renewcommand{\arraystretch}{1.1}
 			\begin{tabular}{p{0.4cm} @{\hskip 0.3cm}p{4.8cm}}
-				% Cédula - usando faFolder (icono de documento)
-				\ifthenelse{\equal{\cvcedula}{}}{}{\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\cvcedula\\}
-				% Nacionalidad - usando faFlag (SÍ existe en versiones antiguas)
-				\ifthenelse{\equal{\cvnacionalidad}{}}{}{\textsc{\tiny\icon{\faFlag}} & \footnotesize\cvnacionalidad\\}
-				% Fecha de nacimiento - usando faCalendar
-				\ifthenelse{\equal{\cvfecha}{}}{}{\textsc{\tiny\icon{\faCalendar}} & \footnotesize\cvfecha\\}
-				% Dirección
-				\ifthenelse{\equal{\cvdireccion}{}}{}{\textsc{\tiny\icon{\faGlobe}} & \footnotesize\cvdireccion\\}
-				% Teléfono
-				\ifthenelse{\equal{\cvtelefono}{}}{}{\textsc{\tiny\icon{\faPhone}} & \footnotesize\cvtelefono\\}
-				% Sitio web
-				\ifthenelse{\equal{\cvsitio}{}}{}{\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\cvsitio}{\cvsitio}\\}
-				% Email
-				\ifthenelse{\equal{\cvemail}{}}{}{\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\cvemail}{\cvemail}\\}
-				% GitHub
-				\ifthenelse{\equal{\cvgithub}{}}{}{\textsc{\tiny\icon{\faGithub}} & \footnotesize\href{https://www.github.com/\cvgithub}{\cvgithub}\\}
-				% LinkedIn
-				\ifthenelse{\equal{\cvlinkedin}{}}{}{\textsc{\tiny\icon{\faLinkedin}} & \footnotesize\href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin}}
+				\ifx\cvcedula\empty\else\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\cvcedula\\\fi
+				\ifx\cvnacionalidad\empty\else\textsc{\tiny\icon{\faFlag}} & \footnotesize\cvnacionalidad\\\fi
+				\ifx\cvfecha\empty\else\textsc{\tiny\icon{\faCalendar}} & \footnotesize\cvfecha\\\fi
+				\ifx\cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\cvdireccion\\\fi
+				\ifx\cvtelefono\empty\else\textsc{\tiny\icon{\faPhone}} & \footnotesize\cvtelefono\\\fi
+				\ifx\cvsitio\empty\else\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\cvsitio}{\cvsitio}\\\fi
+				\ifx\cvemail\empty\else\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\cvemail}{\cvemail}\\\fi
+				\ifx\cvgithub\empty\else\textsc{\tiny\icon{\faGithub}} & \footnotesize\href{https://www.github.com/\cvgithub}{\cvgithub}\\\fi
+				\ifx\cvlinkedin\empty\else\textsc{\tiny\icon{\faLinkedin}} & \footnotesize\href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin}\fi
 			\end{tabular}
 		\end{minipage}
+		
 		\vspace{0.3cm}
+
 		% Secciones de texto
 		\ifthenelse{\boolean{cv@perfil}}{
 	        \emergencystretch=3em
 	        \perfil
 	    }{}
+	    
 	    \ifthenelse{\boolean{cv@sobremi}}{
 	        \emergencystretch=3em
 	        \sobremi
 	    }{}
+	    
 	    \ifthenelse{\boolean{cv@intereses}}{
 	        \emergencystretch=3em
 	        \intereses
 	    }{}
+		
 		% Habilidades
 		\habilidades
+			
 	\end{textblock}
 }
+
 %----------------------------------------------------------------------------------------
-%	 TÍTULOS DE SECCIÓN (PARTE PRINCIPAL)
+%	 TÍTULOS DE SECCIÓN
 %----------------------------------------------------------------------------------------
+
 \newcommand*\recuadro[2]{%
 	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.2pt, minimum size=4.5mm, text height=3mm, fill=#2,#2,text=white](char){#1};%
 }
+
 \newcounter{contadorColor}
 \newcommand{\colorseccion}[1]{%
 	{%
@@ -281,6 +332,7 @@
 	}%
 	\stepcounter{contadorColor}%
 }
+
 \renewcommand{\section}[1]{
 	{%
 		\color{gray}%
@@ -288,16 +340,20 @@
 	}
 	\vspace{0.1cm}
 }
+
 \renewcommand{\subsection}[1]{
 	\par\vspace{.3\parskip}{%
 		\large\color{gray} #1%
 	}
 	\par\vspace{.15\parskip}%
 }
+
 %----------------------------------------------------------------------------------------
 %	 ENTORNOS DE LISTAS
 %----------------------------------------------------------------------------------------
+
 \setlength{\tabcolsep}{0pt}
+
 \newenvironment{veinte}{%
     \par\vspace{0.2cm}
     \noindent
@@ -313,6 +369,7 @@
 }{%
     \end{list}
 }
+
 \newcommand{\veinteitemtiempo}[7]{%
     \noindent
     \begin{minipage}[t]{\timelinewidth}
@@ -330,8 +387,10 @@
         \vspace{0.1cm}
         \small #7\par
     \end{minipage}
+    
     \vspace{0.3cm}
 }
+
 \newcommand{\veinteitem}[4]{%
     \noindent
     \begin{minipage}[t]{\timelinewidth}
@@ -345,59 +404,16 @@
         \vspace{0.1cm}
         \small #4\par
     \end{minipage}
+    
     \vspace{0.3cm}
 }
-\newcommand{\veinteactualitemtiempo}[7]{%
-    \noindent
-    \begin{minipage}[t]{\timelinewidth}
-        \vspace{0.1cm}
-        \centering
-        \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
-            \node [below, font=\tiny] at (0,-0.1) {#3};
-            \path [bottom color=#1,top color=#2] (-0.15,0) rectangle (0.15,1.2) ;
-            \node [above, font=\tiny] at (0,1.1) {#4};
-        \end{tikzpicture}
-    \end{minipage}%
-    \hspace{0.5cm}%
-    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.8cm\relax}
-        \textbf{#5} \hfill {\footnotesize #6}\par
-        \vspace{0.1cm}
-        \small #7\par
-    \end{minipage}
-    \vspace{0.3cm}
-}
-\newenvironment{veintecorto}{%
-    \par\vspace{0.2cm}
-    \noindent
-    \begin{list}{}{%
-        \setlength{\leftmargin}{0pt}
-        \setlength{\rightmargin}{0pt}
-        \setlength{\labelwidth}{0pt}
-        \setlength{\labelsep}{0pt}
-        \setlength{\itemsep}{4pt}
-        \setlength{\topsep}{0pt}
-    }
-    \item[]
-}{%
-    \end{list}
-}
-\newcommand{\veinteitemcorto}[2]{%
-    \noindent
-    \begin{minipage}[t]{\timelinewidth}
-        \vspace{0.1cm}
-        \centering
-        {\footnotesize #1}
-    \end{minipage}%
-    \hspace{0.5cm}%
-    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.8cm\relax}
-        \textbf{#2}\par
-    \end{minipage}
-    \vspace{0.2cm}
-}
+
 %----------------------------------------------------------------------------------------
 %	 MÁRGENES Y ENLACES
 %----------------------------------------------------------------------------------------
+
 \RequirePackage[left=7.0cm,top=0.05cm,right=1cm,bottom=0.1cm,nohead,nofoot]{geometry}
+
 \hypersetup{%
   colorlinks=true,%
   linkcolor=black,%
@@ -406,8 +422,6 @@
   urlcolor=black,%
   bookmarksnumbered=false%
 }
-%----------------------------------------------------------------------------------------
-%	 AJUSTES FINALES
-%----------------------------------------------------------------------------------------
+
 \setlength{\parskip}{0.2\baselineskip}
 \setlist{nosep, leftmargin=*, topsep=0pt, partopsep=0pt}
