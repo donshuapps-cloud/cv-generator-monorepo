@@ -1,0 +1,297 @@
+# ==================================================
+# CURRÍCULUM VITAE - MARÍA TERESA CARREÑO
+# Aspirante a: Pianista de Ensayos del Teatro Principal de Caracas
+# "Si toco, no ensayo; si ensayo, no toco... pero aquí estoy"
+# ==================================================
+# ==================================================
+# INFORMACIÓN PERSONAL
+# ==================================================
+persona:
+  nombre: "María Teresa Gertrudis de Jesús Carreño García"
+  puesto: "Pianista de Ensayos / Repetidora de Ópera"
+  cedula: "V-12.531.853"
+  nacionalidad: "Venezolana (y un poquito del mundo)"
+  fecha_nacimiento: "22 de diciembre de 1853"
+  lugar_nacimiento: "Caracas - En una casa con piano, obviamente"
+  direccion: "Entre la fama internacional y una pensión en Sabana Grande"
+  telefono: "+58 212 555-TERESA (837372)"
+  email: "teresa.carreno@piano.world"
+  sitio_web: "www.teresacarreno.com"
+  github: "@teresa-carreno"
+  linkedin: "María Teresa Carreño - Virtuosa del Piano"
+  foto: "foto-teresa.jpg"
+# ==================================================
+# PERFIL PROFESIONAL
+# ==================================================
+perfil: |
+  Niña prodigio venezolana con experiencia internacional en teclados.
+  He tocado para Abraham Lincoln en la Casa Blanca (y no le rompí el piano).
+  Capacidad probada para aprender óperas enteras mientras duermo la siesta.
+  Busco posición estable donde pueda ensayar sin que me pidan que toque 
+  conciertos al mismo tiempo. Disponibilidad inmediata para viajar (tengo 
+  20 baúles listos).
+# ==================================================
+# SOBRE MÍ
+# ==================================================
+sobre_mi: |
+  Nací en Caracas cuando este país todavía tenía esperanza (y ópera).
+  Mi padre me enseñó a tocar el piano antes que a caminar, y desde entonces
+  no he parado. A los 8 años, ya era más famosa que el Presidente (y con 
+  mejor crítica). He vivido en Nueva York, París, Berlín y cualquier ciudad 
+  con un buen piano de cola.
+  Soy de las que piensa que "ensayo" es una palabra de cuatro letras, pero 
+  reconozco que hasta Liszt necesitaba calentar los dedos. Busco en el Teatro
+  Principal un lugar donde pueda gritarle a los tenores "¡estás desafinando!" 
+  sin que me echen del teatro.
+  Idiomas: hablo piano con fluidez, y además:
+  - Español (con acento caraqueño auténtico)
+  - Inglés (con acento de Nueva York, época 1860)
+  - Francés (convincente, especialmente para quejas)
+  - Alemán (suficiente para entender cuando me critican)
+# ==================================================
+# INTERESES (cuando no estoy tocando piano)
+# ==================================================
+intereses:
+- "Componer óperas que nadie me estrena"
+- "Discutir con críticos musicales"
+- "Romper récords de velocidad en escalas cromáticas"
+- "Viajar sin pagar equipaje extra por las partituras"
+- "Demostrar que las mujeres pueden tocar tan fuerte como los hombres"
+- "Ignorar a quienes dicen que 'las niñas deben tocar suavecito'"
+# ==================================================
+# HABILIDADES (valoradas del 0 al 5)
+# ==================================================
+habilidades:
+- nombre: "Piano (técnica general)"
+  valor: 5
+- nombre: "Lectura a primera vista"
+  valor: 5
+- nombre: "Memoria musical"
+  valor: 5
+- nombre: "Acompañamiento de cantantes"
+  valor: 3
+- nombre: "Paciencia con tenores"
+  valor: 1
+- nombre: "Composición"
+  valor: 4
+- nombre: "Improvisación"
+  valor: 5
+- nombre: "Capacidad de viajar"
+  valor: 5
+- nombre: "Hacer maletas"
+  valor: 5
+- nombre: "Tolerancia a críticos"
+  valor: 2
+# ==================================================
+# EXPERIENCIA LABORAL
+# ==================================================
+experiencia:
+- fecha_inicio: "1862"
+  fecha_fin: "1865"
+  puesto: "Niña Prodigio Internacional"
+  lugar: "Nueva York, Estados Unidos"
+  color_inicio: "mainblue"
+  color_fin: "white"
+  descripcion:
+  - "Debut en el Irving Hall con solo 8 años (críticas: 'asombroso', 'inusual', '¿es en serio?')"
+  - "Gira por 20 ciudades en 6 meses (descubrí que los hoteles no tienen pianos)"
+  - "Conocí a Louis Moreau Gottschalk, quien me dijo: 'toca más fuerte que yo' (mi mayor orgullo)"
+  - "Aprendí a no preguntar si puedo tocar el piano del lugar; directamente lo toco"
+- fecha_inicio: "1863"
+  fecha_fin: "1865"
+  puesto: "Pianista de la Casa Blanca (no oficial)"
+  lugar: "Washington D.C., residencia de Abraham Lincoln"
+  color_inicio: "mainblue"
+  color_fin: "white"
+  descripcion:
+  - "Invitada a tocar para el presidente Lincoln (estaba distraído, pero aplaudió)"
+  - "Interpreté 'El Sueño de la Vida' de Gottschalk (Lincoln preguntó si era un himno)"
+  - "Conocí a la familia Lincoln; Tad Lincoln intentó tocar conmigo a 4 manos (fracasamos)"
+  - "Me pidieron que tocara más suave porque el presidente pensaba (imposible, yo toco forte)"
+- fecha_inicio: "1865"
+  fecha_fin: "1870"
+  puesto: "Virtuosa Errante"
+  lugar: "Europa (París, Londres, Berlín, donde haya público)"
+  color_inicio: "mainblue"
+  color_fin: "white"
+  descripcion:
+  - "Debut en Londres con 12 años (los críticos dijeron que parecía tener 30)"
+  - "Estudié con Anton Rubinstein en San Petersburgo (me enseñó a beber vodka y tocar Chopin)"
+  - "Conocí a Rossini en París (me ofreció un bombón; acepté)"
+  - "Gira por Alemania (descubrí que el público alemán es el más exigente, y el que mejor paga)"
+  - "Compuse mi primer cuarteto de cuerdas (los críticos dijeron 'interesante' - lo odié)"
+- fecha_inicio: "1870"
+  fecha_fin: "1875"
+  puesto: "Solista de Orquestas Europeas"
+  lugar: "Múltiples ciudades"
+  color_inicio: "mainblue"
+  color_fin: "white"
+  descripcion:
+  - "Toqué el Concierto para Piano No.1 de Chaikovski (el compositor dijo: '¿seguro que es mujer?')"
+  - "Estrené obras de compositores contemporáneos (siempre les mejoro las cadenzas)"
+  - "Primera gira por Escandinavia (aprendí que el salmón noruego es excelente)"
+  - "Inicié mi costumbre de tocar de memoria (porque olvidé las partituras en un hotel)"
+- fecha_inicio: "1875"
+  fecha_fin: "1885"
+  puesto: "Virtuosa Internacional"
+  lugar: "Gira mundial (América, Europa, Venezuela)"
+  color_inicio: "mainblue"
+  color_fin: "white"
+  descripcion:
+  - "Regresé a Venezuela después de 20 años (llegué en barco, con piano incluido)"
+  - "Toqué en Caracas para el presidente Guzmán Blanco (me pidió que tocara el himno nacional)"
+  - "Fundé la primera escuela de piano en Caracas (mis alumnos no sabían qué les esperaba)"
+  - "Grabé con Thomas Edison en sus primeros fonógrafos (me dijo: '¡toca más fuerte, señorita!')"
+# ==================================================
+# EDUCACIÓN
+# ==================================================
+educacion:
+- fecha_inicio: "1858"
+  fecha_fin: "1862"
+  titulo: "Primeras lecciones de piano"
+  institucion: "Academia Carreño (mi papá), Caracas"
+  descripcion: "Aprendí a tocar antes que a leer. Mi padre me enseñaba mientras tomaba café."
+- fecha_inicio: "1862"
+  fecha_fin: "1863"
+  titulo: "Perfeccionamiento en Nueva York"
+  institucion: "Lecciones con Louis Moreau Gottschalk"
+  descripcion: "Gottschalk me enseñó que el piano puede sonar como orquesta. Y a fumar puros."
+- fecha_inicio: "1865"
+  fecha_fin: "1866"
+  titulo: "Estudios avanzados"
+  institucion: "Conservatorio de París (clase de Marmontel)"
+  descripcion: "Duración: 6 meses. Me aburrí. Me fui de gira."
+- fecha_inicio: "1866"
+  fecha_fin: "1867"
+  titulo: "Clases con Anton Rubinstein"
+  institucion: "San Petersburgo, Rusia"
+  descripcion: "Rubinstein me enseñó a tocar con alma rusa. Y a soportar el frío."
+- fecha_inicio: "1868"
+  fecha_fin: "1869"
+  titulo: "Doctorado Honoris Causa"
+  institucion: "Universidad de la Vida (y los escenarios)"
+  descripcion: "Por años de giras, conciertos y composiciones. Tesis: 'Cómo tocar 400 conciertos sin volverse loca'"
+# ==================================================
+# REFERENCIAS PERSONALES Y PROFESIONALES
+# ==================================================
+referencias:
+- nombre: "Abraham Lincoln"
+  relacion: "Ex-Presidente de Estados Unidos (oyente ocasional)"
+  telefono: "Ya no contesta (desde 1865)"
+  comentario: "Tocaba muy fuerte, pero me gustaba. Despertaba a los ministros."
+- nombre: "Louis Moreau Gottschalk"
+  relacion: "Maestro y colega"
+  telefono: "En el más allá (línea celestial)"
+  comentario: "La mejor alumna que tuve. Lástima que toca más fuerte que yo."
+- nombre: "Anton Rubinstein"
+  relacion: "Maestro ruso"
+  telefono: "San Petersburgo (preguntar en el conservatorio)"
+  comentario: "Tiene alma rusa. Lástima que sea venezolana."
+- nombre: "Franz Liszt"
+  relacion: "Colega y... ¿rival?"
+  telefono: "Weimar, Alemania (dejar mensaje)"
+  comentario: "La única pianista que me hace sudar. Y es mujer. Increíble."
+- nombre: "Giuseppe Verdi"
+  relacion: "Compositor italiano"
+  telefono: "Milán, Italia (conseguir con su secretario)"
+  comentario: "Si ella ensaya mis óperas, no necesito director."
+- nombre: "Antonio Guzmán Blanco"
+  relacion: "Presidente de Venezuela"
+  telefono: "Palacio de Miraflores, Caracas"
+  comentario: "Tocó el himno nacional con más garra que nuestra banda militar."
+# ==================================================
+# REPERTORIO PRINCIPAL (para audiciones)
+# ==================================================
+repertorio:
+  conciertos:
+  - "Beethoven - Concierto para piano No. 5 'Emperador' (lo toco mientras desayuno)"
+  - "Chopin - Concierto para piano No. 1 (me lo sé al revés)"
+  - "Liszt - Concierto No. 1 (fácil, comparado con sus estudios)"
+  - "Chaikovski - Concierto No. 1 (lo toqué antes que muchos pianistas rusos)"
+  - "Schumann - Concierto para piano (romántico y complicado, como mi vida)"
+  - "Gottschalk - Grande Tarantelle (dedicado a mí, literalmente)"
+  - "Grieg - Concierto para piano (nórdico y refrescante, como su salmón)"
+  solos:
+  - "Chopin - 24 Estudios (op.10 y op.25) - todos, sin sudar"
+  - "Liszt - Estudios Trascendentales (sí, todos, incluyendo 'Mazeppa')"
+  - "Beethoven - Sonatas completas (32, para ser exactos)"
+  - "Bach - El Clave Bien Temperado (completo, en mi tiempo libre)"
+  - "Schumann - Carnaval (me identifico con Eusebius y Florestan)"
+  - "Brahms - Variaciones sobre un tema de Paganini (las dos versiones, ¿para qué elegir?)"
+  - "Mendelssohn - Variaciones serias (me salen graciosas)"
+  opera (para ensayos):
+  - "Rossini - El Barbero de Sevilla (me sé todas las arias, hasta las de los bajos)"
+  - "Donizetti - Lucia di Lammermoor (puedo tocar la escena de la locura dormida)"
+  - "Verdi - Rigoletto (y todas las demás, que conste)"
+  - "Bellini - Norma (la conozco mejor que algunas sopranos)"
+  - "Wagner - Tristán e Isolda (sí, también, aunque duela)"
+  - "Mozart - Las bodas de Fígaro (toda, de memoria, con los recitativos)"
+  - "Bizet - Carmen (la habanera la toco con castañuelas imaginarias)"
+# ==================================================
+# INFORMACIÓN ADICIONAL
+# ==================================================
+informacion_adicional:
+- "Disponibilidad: Inmediata (solo necesito 20 minutos para hacer las maletas)"
+- "Horarios: Puedo ensayar a cualquier hora, pero prefiero después del café"
+- "Preferencias: Pianos de cola, idealmente Steinway o Érard (los verticales no, gracias)"
+- "Condiciones especiales: Se ruega no interrumpir cuando estoy tocando 'Mazeppa' de Liszt"
+- "Particularidades: Puedo tocar con las dos manos y criticar al cantante al mismo tiempo"
+- "Miedos confesables: Que me pidan tocar con partitura (no recuerdo dónde dejé las mías)"
+- "Frase célebre: 'El piano no se toca, se lucha contra él'"
+- "Premios: Demasiados para enumerarlos. Básicamente, todo el mundo me ha aplaudido."
+- "Logro no musical: Aprendí a dormir en trenes entre conciertos (técnica avanzada)"
+- "Composiciones propias: Cuarteto de cuerdas en Si menor, varias obras para piano, una ópera inacabada"
+- "Grabaciones históricas: Rollos para pianola y cilindros de Edison (se me ve la cara de felicidad)"
+# ==================================================
+# CARTA DE PRESENTACIÓN (formato libre)
+# ==================================================
+carta_presentacion: |
+  Al honorable jurado del Teatro Principal de Caracas:
+  Me dirijo a ustedes con la esperanza de obtener la plaza de "pianista de ensayos"
+  de ese glorioso coliseo. Aunque llevo 20 años sin pisar Caracas (la fama internacional
+  es así de absorbente), mi corazón sigue latiendo al ritmo de un joropo.
+  Sé que pensarán: "¿Teresa Carreño pidiendo trabajo? ¡Pero si es famosa!" Pues sí,
+  pero resulta que la fama no paga las cuentas, y entre gira y gira, uno extraña
+  el café con leche de la abuela y los tequeños de las fiestas patrias.
+  Además, necesito un lugar donde pueda ensayar sin que me pidan que toque un concierto
+  al día siguiente. Quiero llegar, sentarme al piano, gritarle a los tenores "¡más
+  piano, caramba!" y volver a mi casa sin que me firmen autógrafos. ¿Es mucho pedir?
+  Mis habilidades como repetidora son legendarias: puedo tocar cualquier ópera de 
+  memoria mientras corrijo la pronunciación italiana del tenor, todo sin perder 
+  el compás. Si el bajo se duerme, le lanzo un acorde en fortissimo que lo despierta
+  hasta en la butaca de la última fila.
+  Acepto ensayar por las mañanas (cuando los cantantes están de mejor humor), 
+  tardes (cuando ya se rindieron) o noches (cuando ensayan con desesperación pre-estreno).
+  Solo pido un piano en condiciones, un termo de café y que no me pregunten 
+  "¿y para cuándo el concierto?".
+  Adjunto referencias de gente importante que ya no puede hablar (Lincoln, Gottschalk)
+  y de otros que aún viven pero me tienen miedo (Liszt). Todos coinciden: soy la mejor.
+  Atentamente,
+  Teresa Carreño
+  (La que toca más fuerte que Liszt)
+  P.D.: Si me aceptan, prometo no quejarme del repertorio. Bueno, no mucho.
+  P.D.2: ¿El teatro tiene piano de cola? Pregunto por preguntar.
+  P.D.3: Tráiganme cachitos los días de ensayo, por favor.
+# ==================================================
+# NOTA HISTÓRICA
+# ==================================================
+nota_historica: |
+  Este CV es una obra de ficción humorística basada en la vida real de 
+  María Teresa Carreño (1853-1917), pianista, compositora y cantante venezolana,
+  una de las más grandes virtuosas de la historia de la música.
+  DATOS HISTÓRICOS REALES UTILIZADOS:
+  - Nació en Caracas el 22 de diciembre de 1853
+  - Debutó en Nueva York en 1862, a los 8 años, en el Irving Hall
+  - Tocó para Abraham Lincoln en la Casa Blanca en 1863
+  - Fue alumna de Louis Moreau Gottschalk
+  - Estudió con Anton Rubinstein en San Petersburgo
+  - Conoció a Gioachino Rossini en París
+  - Fue contemporánea y admiradora de Franz Liszt
+  - Compuso más de 40 obras para piano, cuartetos de cuerda y canciones
+  - Realizó giras por América, Europa, Sudáfrica y Australia
+  - Grabó con Thomas Edison en sus primeros fonógrafos
+  - Regresó a Venezuela en varias ocasiones, tocando para presidentes y públicos entusiastas
+  Las anécdotas y comentarios son imaginados con cariño y respeto a su legado.
+  Si Teresa viviera hoy, probablemente tendría su propio canal de YouTube,
+  5 millones de suscriptores y seguiría tocando más fuerte que cualquier
+  pianista masculino. Y sí, se merecería este puesto en el Teatro Principal.
