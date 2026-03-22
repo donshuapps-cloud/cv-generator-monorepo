@@ -1,0 +1,112 @@
+# ==================================================
+# CURRÍCULUM VITAE - MARÍA TERESA CARREÑO
+# Aspirante a: Pianista de Ensayos del Teatro Principal de Caracas
+# ==================================================
+persona:
+  nombre: "María Teresa Gertrudis de Jesús Carreño García"
+  puesto: "Pianista de Ensayos / Repetidora de Ópera"
+  cedula: "V-12.531.853"
+  nacionalidad: "Venezolana"
+  fecha_nacimiento: "22 de diciembre de 1853"
+  direccion: "Entre la fama internacional y una pensión en Sabana Grande, Caracas, Venezuela"
+  telefono: "+58 212 555-TERESA"
+  email: "teresa.carreno@piano.world"
+  sitio_web: "www.teresacarreno.com"
+  github: "teresa-carreno"
+  linkedin: "Maria-Teresa-Carreno"
+  foto: "fotoperfil.jpg"
+# ==================================================
+perfil: |
+  Niña prodigio venezolana con experiencia internacional en teclados.
+  He tocado para Abraham Lincoln en la Casa Blanca. Capacidad probada para 
+  aprender óperas enteras mientras duermo la siesta. Busco posición estable 
+  donde pueda ensayar sin que me pidan que toque conciertos al mismo tiempo.
+# ==================================================
+sobre_mi: |
+  Nací en Caracas cuando este país todavía tenía esperanza. Mi padre me enseñó 
+  a tocar el piano antes que a caminar. A los 8 años debuté en Nueva York. 
+  He vivido en Nueva York, París, Berlín y cualquier ciudad con un buen piano.
+# ==================================================
+intereses:
+- "Componer óperas"
+- "Discutir con críticos musicales"
+- "Viajar por el mundo"
+- "Enseñar piano"
+# ==================================================
+habilidades:
+- nombre: "Piano (técnica general)"
+  valor: 5
+- nombre: "Lectura a primera vista"
+  valor: 5
+- nombre: "Memoria musical"
+  valor: 5
+- nombre: "Acompañamiento de cantantes"
+  valor: 4
+- nombre: "Composición"
+  valor: 4
+- nombre: "Improvisación"
+  valor: 5
+- nombre: "Capacidad de viajar"
+  valor: 5
+- nombre: "Paciencia con tenores"
+  valor: 2
+# ==================================================
+experiencia:
+- fecha_inicio: "1862"
+  fecha_fin: "1865"
+  puesto: "Niña Prodigio Internacional"
+  lugar: "Nueva York, Estados Unidos"
+  descripcion:
+  - "Debut en el Irving Hall con solo 8 años"
+  - "Gira por 20 ciudades en 6 meses"
+  - "Conocí a Louis Moreau Gottschalk"
+- fecha_inicio: "1863"
+  fecha_fin: "1865"
+  puesto: "Pianista de la Casa Blanca"
+  lugar: "Washington D.C., residencia de Abraham Lincoln"
+  descripcion:
+  - "Invitada a tocar para el presidente Lincoln"
+  - "Interpreté obras de Gottschalk y Beethoven"
+- fecha_inicio: "1865"
+  fecha_fin: "1875"
+  puesto: "Virtuosa Internacional"
+  lugar: "Europa (París, Londres, Berlín, San Petersburgo)"
+  descripcion:
+  - "Debut en Londres con 12 años"
+  - "Estudié con Anton Rubinstein"
+  - "Conocí a Rossini en París"
+  - "Gira por Alemania"
+# ==================================================
+educacion:
+- fecha_inicio: "1858"
+  fecha_fin: "1862"
+  titulo: "Primeras lecciones de piano"
+  institucion: "Academia Carreño, Caracas"
+- fecha_inicio: "1862"
+  fecha_fin: "1863"
+  titulo: "Perfeccionamiento"
+  institucion: "Lecciones con Louis Moreau Gottschalk"
+- fecha_inicio: "1866"
+  fecha_fin: "1867"
+  titulo: "Estudios avanzados"
+  institucion: "Clases con Anton Rubinstein, San Petersburgo"
+# ==================================================
+referencias:
+- nombre: "Abraham Lincoln"
+  relacion: "Ex-Presidente de Estados Unidos"
+  telefono: "-"
+  comentario: "Tocaba muy fuerte, pero me gustaba"
+- nombre: "Anton Rubinstein"
+  relacion: "Maestro y compositor ruso"
+  telefono: "San Petersburgo"
+  comentario: "Tiene alma rusa"
+- nombre: "Franz Liszt"
+  relacion: "Colega y admirador"
+  telefono: "Weimar, Alemania"
+  comentario: "La única pianista que me hace sudar"
+# ==================================================
+informacion_adicional:
+- "Disponibilidad: Inmediata"
+- "Horarios: Flexibles"
+- "Preferencias: Pianos de cola Steinway o Érard"
+- "Frase célebre: El piano no se toca, se lucha contra él"
