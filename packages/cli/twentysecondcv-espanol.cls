@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Curriculum Vitae Timeline/CV - Versión en Español
-% Versión: 9.0 - CORRECCIÓN FINAL (columna multipágina y foto)
+% Versión: 9.1 - ESPACIADO OPTIMIZADO (columna completa en una página)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ProvidesClass{twentysecondcv-espanol}[2024/03/22 CV class en Español]
 \LoadClass{article}
@@ -28,8 +28,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{adjustbox}
 \RequirePackage{enumitem}
-\RequirePackage{needspace}   % Para control de saltos de página
-\RequirePackage{afterpage}   % Para contenido después de página
+\RequirePackage{needspace}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \usetikzlibrary{calc}
@@ -50,13 +49,14 @@
 \renewcommand{\textbf}[1]{{\textcolor{gray}#1}}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}  % Reducido de 0.2\baselineskip a 0
 \newcommand{\interestList}[2][ $\cdot$ ]{%
   \def\nextitem{\def\nextitem{#1}}%
   \@for \el:=#2\do{\nextitem\el}%
 }
 \newcommand{\makeList}[1]{%
-\vspace{-0.3em}
-\begin{itemize}[leftmargin=*, nosep, topsep=0pt, partopsep=0pt]
+\vspace{-0.2em}
+\begin{itemize}[leftmargin=*, nosep, topsep=0pt, partopsep=0pt, itemsep=0pt]
 \ls{#1}
 \end{itemize}
 }
@@ -70,7 +70,7 @@
 \setlength{\TPVertModule}{1cm}
 \newlength\imagewidth
 \newlength\imagescale
-\pgfmathsetlength{\imagewidth}{4.2cm}
+\pgfmathsetlength{\imagewidth}{3.8cm}  % Reducido de 4.2cm
 \pgfmathsetlength{\imagescale}{\imagewidth/600}
 \newlength{\TotalSectionLength}
 \newlength{\SectionTitleLength}
@@ -79,9 +79,9 @@
 	\settowidth{\SectionTitleLength}{\large #1 }%
 	\addtolength\TotalSectionLength{-\SectionTitleLength}%
 	\addtolength\TotalSectionLength{-2.22221pt}%
-	\vspace{6pt}%
+	\vspace{4pt}%  % Reducido de 6pt
 	{\color{black!80} \large #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}%
-	\vspace{2pt}%
+	\vspace{0pt}%  % Reducido de 2pt
 }
 % Variables booleanas
 \newboolean{cv@sobremi}
@@ -90,10 +90,6 @@
 \setboolean{cv@intereses}{false}
 \newboolean{cv@perfil}
 \setboolean{cv@perfil}{false}
-\newboolean{cv@segundapagina}
-\setboolean{cv@segundapagina}{false}
-% Contador para contenido extendido
-\newcounter{columnaContenido}
 % COMANDOS PARA INFORMACIÓN PERSONAL
 \newcommand{\cvnombre}[1]{\def\@cvnombre{#1}}
 \newcommand{\cvpuesto}[1]{\def\@cvpuesto{#1}}
@@ -128,7 +124,7 @@
 \small #2%
 \end{justify}%
 \end{minipage}
-\vspace{8pt}
+\vspace{4pt}%  % Reducido de 8pt
 }}
 \newcommand{\intereses}[2]{\setboolean{cv@intereses}{true}\renewcommand{\intereses}{%
 \begin{minipage}{\linewidth}
@@ -137,7 +133,7 @@
 \small \interestList{#2}%
 \end{justify}%
 \end{minipage}
-\vspace{8pt}
+\vspace{4pt}%  % Reducido de 8pt
 }}
 \newcommand{\perfil}[2]{\setboolean{cv@perfil}{true}\renewcommand{\perfil}{%
 \begin{minipage}{\linewidth}
@@ -146,40 +142,40 @@
 \small #2%
 \end{justify}%
 \end{minipage}
-\vspace{8pt}
+\vspace{4pt}%  % Reducido de 8pt
 }}
-\newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.3pt, fill=mainblue,mainblue,text=white, font=\tiny] (char) {#1};}}
+\newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.2pt, fill=mainblue,mainblue,text=white, font=\tiny] (char) {#1};}}
 \newcommand\habilidades[1]{ 
 	\renewcommand{\habilidades}{
 		\begin{minipage}{\linewidth}
 		\profilesection{Habilidades}
-		\begin{tikzpicture}[scale=0.85]
+		\begin{tikzpicture}[scale=0.8]  % Reducido de 0.85
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,-\i) rectangle (4.8,-\i+0.28);
-				\draw[fill=white,mainblue](0,-\i) rectangle (0.96*\y,-\i+0.28);
-				\node [above right, font=\small] at (0,-\i+0.28) {\x};
+				\draw[fill=maingray,maingray] (0,-\i) rectangle (4.8,-\i+0.24);  % Altura reducida de 0.28 a 0.24
+				\draw[fill=white,mainblue](0,-\i) rectangle (0.96*\y,-\i+0.24);
+				\node [above right, font=\footnotesize] at (0,-\i+0.24) {\x};  % \footnotesize en lugar de \small
 				\foreach \z in {0,1,2,...,10}
                 {
 				    \coordinate (A\z) at ($(0,-\i)+(0.96*\z*0.5cm,0)$) {};
 				    \ifodd\z
-                        \draw[white] ($(A\z)$) -- ($(A\z)+(0,1.8pt)$);
+                        \draw[white] ($(A\z)$) -- ($(A\z)+(0,1.2pt)$);
                     \else
-                        \draw[white] ($(A\z)$) -- ($(A\z)+(0,3.6pt)$);
+                        \draw[white] ($(A\z)$) -- ($(A\z)+(0,2.4pt)$);
                     \fi
                 }
 			}
 		\end{tikzpicture}
-		\vspace{4pt}
-		{\tiny \hfill Escala: 0 (Básico) a 5 (Experto) \hfill \phantom{}}
 		\vspace{2pt}
+		{\tiny \hfill Escala: 0 (Básico) a 5 (Experto) \hfill \phantom{}}
+		\vspace{0pt}
 		\end{minipage}
-		\vspace{8pt}
+		\vspace{4pt}%  % Reducido de 8pt
 	}
 }
 \def\timeline#1#2#3#4#5{
     \begin{minipage}[c]{\timelinewidth}
         \centering
-        \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+        \begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
             \node [below, font=\tiny] at (0,-0.1) {#4};
             \path [bottom color=#2,top color=#3] (-0.15,0) rectangle (0.15,#1-1) ;
             \node [above, font=\tiny] at (0,#1-0.9) {#5};
@@ -187,25 +183,21 @@
     \end{minipage}
 }
 %----------------------------------------------------------------------------------------
-%	 CONSTRUCCIÓN DE LA BARRA LATERAL - CON FLUJO A PÁGINA SIGUIENTE
+%	 CONSTRUCCIÓN DE LA BARRA LATERAL - ESPACIADO OPTIMIZADO
 %----------------------------------------------------------------------------------------
-\newbox\sidebox
-\newbox\sideboxrest
 \newcommand{\crearperfil}{
 	\begin{tikzpicture}[remember picture,overlay]
    		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
 	\end{tikzpicture}
 	\begin{textblock}{6}(0.5, 0.1)
-		% Contenido de la columna que se repite en cada página
-		\gdef\columnaContenido{}
-		% Foto de perfil
+		% Foto de perfil - tamaño reducido
 		\ifx\@fotoperfil\empty
 			\begin{center}
 				\begin{minipage}{0.9\linewidth}
 					\begin{center}
 						\begin{tikzpicture}
-							\draw[fill=white, draw=mainblue, line width=2pt] (0,0) circle (1.8cm);
-							\node at (0,0) {\fontsize{50}{60}\selectfont\color{mainblue}\faUser};
+							\draw[fill=white, draw=mainblue, line width=1.5pt] (0,0) circle (1.6cm);  % Radio reducido de 1.8 a 1.6
+							\node at (0,0) {\fontsize{40}{48}\selectfont\color{mainblue}\faUser};
 						\end{tikzpicture}
 					\end{center}
 				\end{minipage}
@@ -222,34 +214,34 @@
 				\end{minipage}
 			\end{center}
 		\fi
-		\vspace{0.3cm}
-		% NOMBRE
+		\vspace{0.2cm}  % Reducido de 0.3cm
+		% NOMBRE - tamaño reducido
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
-					{\Huge\bfseries\color{mainblue}\@cvnombre\par}
+					{\Large\bfseries\color{mainblue}\@cvnombre\par}  % Huge → Large
 				\end{center}
 			\end{minipage}
 		\end{center}
-		\vspace{0.2cm}
-		% PUESTO
+		\vspace{0.1cm}  % Reducido de 0.2cm
+		% PUESTO - tamaño reducido
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
-					{\Large\color{black!80}\@cvpuesto\par}
+					{\normalsize\color{black!80}\@cvpuesto\par}  % Large → normalsize
 				\end{center}
 			\end{minipage}
 		\end{center}
-		\vspace{0.4cm}
-		% INFORMACIÓN DE CONTACTO
+		\vspace{0.2cm}  % Reducido de 0.4cm
+		% INFORMACIÓN DE CONTACTO - espaciado compacto
 		\begin{minipage}{\linewidth}
-			\renewcommand{\arraystretch}{1.2}
+			\renewcommand{\arraystretch}{1.0}  % Reducido de 1.2
 			\setlength{\tabcolsep}{2pt}
-			\begin{tabular}{p{0.6cm} @{\hskip 0.2cm}p{4.6cm}}
+			\begin{tabular}{p{0.5cm} @{\hskip 0.1cm}p{4.7cm}}
 				\ifx\@cvcedula\empty\else\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\@cvcedula\\\fi
 				\ifx\@cvnacionalidad\empty\else\textsc{\tiny\icon{\faFlag}} & \footnotesize\@cvnacionalidad\\\fi
 				\ifx\@cvfecha\empty\else\textsc{\tiny\icon{\faCalendar}} & \footnotesize\@cvfecha\\\fi
-				\ifx\@cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\parbox{4.6cm}{\raggedright\@cvdireccion}\\\fi
+				\ifx\@cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\parbox{4.7cm}{\raggedright\@cvdireccion}\\\fi
 				\ifx\@cvtelefono\empty\else\textsc{\tiny\icon{\faPhone}} & \footnotesize\@cvtelefono\\\fi
 				\ifx\@cvsitio\empty\else\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\@cvsitio}{\@cvsitio}\\\fi
 				\ifx\@cvemail\empty\else\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\@cvemail}{\@cvemail}\\\fi
@@ -257,44 +249,30 @@
 				\ifx\@cvlinkedin\empty\else\textsc{\tiny\icon{\faLinkedin}} & \footnotesize\href{https://www.linkedin.com/in/\@cvlinkedin}{\@cvlinkedin}\fi
 			\end{tabular}
 		\end{minipage}
-		\vspace{0.4cm}
-		% Secciones de texto que pueden continuar en página siguiente
+		\vspace{0.2cm}  % Reducido de 0.4cm
+		% Secciones de texto
 		\ifthenelse{\boolean{cv@perfil}}{
-			\needspace{3cm}
+			\needspace{2cm}
 			\perfil
 		}{}
 	    \ifthenelse{\boolean{cv@sobremi}}{
-			\needspace{3cm}
+			\needspace{2.5cm}
 			\sobremi
 		}{}
 	    \ifthenelse{\boolean{cv@intereses}}{
-			\needspace{2cm}
+			\needspace{1.5cm}
 			\intereses
 		}{}
 		% Habilidades - siempre visibles
-		\needspace{4cm}
+		\needspace{3cm}
 		\habilidades
-		% Marcador para continuar en página siguiente si es necesario
-		\vfill
-		{\tiny\color{gray}\hfill Cont. en página siguiente \hfill}
 	\end{textblock}
-}
-% Comando para forzar continuación de columna en página siguiente
-\newcommand{\continuaColumna}{
-	\newpage
-	\begin{tikzpicture}[remember picture,overlay]
-   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
-	\end{tikzpicture}
-	\begin{textblock}{6}(0.5, 0.1)
-		\vspace{0.3cm}
-		{\small\color{mainblue}\faArrowCircleRight\ Continuación...}
-		\vspace{0.3cm}
 }
 %----------------------------------------------------------------------------------------
 %	 TÍTULOS DE SECCIÓN
 %----------------------------------------------------------------------------------------
 \newcommand*\recuadro[2]{%
-	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.2pt, minimum size=4.5mm, text height=3mm, fill=#2,#2,text=white](char){#1};%
+	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1pt, minimum size=4mm, text height=2.5mm, fill=#2,#2,text=white](char){#1};%
 }
 \newcounter{contadorColor}
 \newcommand{\colorseccion}[1]{%
@@ -321,27 +299,27 @@
 		\color{gray}%
 		\large\colorseccion{#1}%
 	}
-	\vspace{0.1cm}
+	\vspace{0.05cm}
 }
 \renewcommand{\subsection}[1]{
-	\par\vspace{.3\parskip}{%
+	\par\vspace{.2\parskip}{%
 		\large\color{gray} #1%
 	}
-	\par\vspace{.15\parskip}%
+	\par\vspace{.1\parskip}%
 }
 %----------------------------------------------------------------------------------------
 %	 ENTORNOS DE LISTAS
 %----------------------------------------------------------------------------------------
 \setlength{\tabcolsep}{0pt}
 \newenvironment{veinte}{%
-    \par\vspace{0.2cm}
+    \par\vspace{0.1cm}
     \noindent
     \begin{list}{}{%
         \setlength{\leftmargin}{0pt}
         \setlength{\rightmargin}{0pt}
         \setlength{\labelwidth}{0pt}
         \setlength{\labelsep}{0pt}
-        \setlength{\itemsep}{8pt}
+        \setlength{\itemsep}{6pt}
         \setlength{\topsep}{0pt}
     }
     \item[]
@@ -351,41 +329,41 @@
 \newcommand{\veinteitemtiempo}[7]{%
     \noindent
     \begin{minipage}[t]{\timelinewidth}
-        \vspace{0.1cm}
+        \vspace{0.05cm}
         \centering
-        \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+        \begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
             \node [below, font=\tiny] at (0,-0.1) {#3};
-            \path [bottom color=#1,top color=#2] (-0.15,0) rectangle (0.15,1.2) ;
-            \node [above, font=\tiny] at (0,1.1) {#4};
+            \path [bottom color=#1,top color=#2] (-0.15,0) rectangle (0.15,1.1) ;
+            \node [above, font=\tiny] at (0,1.0) {#4};
         \end{tikzpicture}
     \end{minipage}%
-    \hspace{0.5cm}%
-    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.8cm\relax}
+    \hspace{0.4cm}%
+    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.7cm\relax}
         \textbf{#5} \hfill {\footnotesize #6}\par
-        \vspace{0.1cm}
+        \vspace{0.05cm}
         \small #7\par
     \end{minipage}
-    \vspace{0.3cm}
+    \vspace{0.2cm}
 }
 \newcommand{\veinteitem}[4]{%
     \noindent
     \begin{minipage}[t]{\timelinewidth}
-        \vspace{0.1cm}
+        \vspace{0.05cm}
         \centering
         {\footnotesize #1}
     \end{minipage}%
-    \hspace{0.5cm}%
-    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.8cm\relax}
+    \hspace{0.4cm}%
+    \begin{minipage}[t]{\dimexpr\linewidth-\timelinewidth-0.7cm\relax}
         \textbf{#2} \hfill {\footnotesize #3}\par
-        \vspace{0.1cm}
+        \vspace{0.05cm}
         \small #4\par
     \end{minipage}
-    \vspace{0.3cm}
+    \vspace{0.2cm}
 }
 %----------------------------------------------------------------------------------------
 %	 MÁRGENES Y ENLACES
 %----------------------------------------------------------------------------------------
-\RequirePackage[left=7.0cm,top=0.05cm,right=1cm,bottom=0.1cm,nohead,nofoot]{geometry}
+\RequirePackage[left=7.0cm,top=0.1cm,right=1cm,bottom=0.1cm,nohead,nofoot]{geometry}
 \hypersetup{%
   colorlinks=true,%
   linkcolor=black,%
@@ -394,5 +372,4 @@
   urlcolor=black,%
   bookmarksnumbered=false%
 }
-\setlength{\parskip}{0.2\baselineskip}
-\setlist{nosep, leftmargin=*, topsep=0pt, partopsep=0pt}
+\setlist{nosep, leftmargin=*, topsep=0pt, partopsep=0pt, itemsep=0pt}
