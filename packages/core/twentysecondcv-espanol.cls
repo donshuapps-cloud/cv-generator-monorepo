@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Curriculum Vitae Timeline/CV - Versión en Español
-% Versión: 8.5 - FINAL (corregido: foto, nombre y puesto)
+% Versión: 8.6 - CORREGIDA (foto en datos/, columna ajustada)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ProvidesClass{twentysecondcv-espanol}[2024/03/22 CV class en Español]
@@ -208,7 +208,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	 CONSTRUCCIÓN DE LA BARRA LATERAL - VERSIÓN CORREGIDA
+%	 CONSTRUCCIÓN DE LA BARRA LATERAL - VERSIÓN CORREGIDA V2
 %----------------------------------------------------------------------------------------
 
 \newcommand{\crearperfil}{
@@ -218,9 +218,9 @@
 
 	\begin{textblock}{6}(0.5, 0.1)
 			
-		% Foto de perfil - CORREGIDO
+		% Foto de perfil - Busca en carpeta datos/
 		\ifx\@fotoperfil\empty
-			% No hay foto, mostrar círculo vacío con icono
+			% No hay foto, mostrar círculo con icono
 			\begin{center}
 				\begin{minipage}{0.9\linewidth}
 					\begin{center}
@@ -237,7 +237,7 @@
 					\begin{center}
 						\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 							\clip (600/2, 567/2) circle (567/2);
-							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\@fotoperfil}};
+							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{datos/\@fotoperfil}};
 						\end{tikzpicture}
 					\end{center}
 				\end{minipage}
@@ -245,7 +245,7 @@
 		\fi
 		\vspace{0.3cm}
 
-		% NOMBRE - CORREGIDO
+		% NOMBRE
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
@@ -256,7 +256,7 @@
 		
 		\vspace{0.2cm}
 		
-		% PUESTO - CORREGIDO
+		% PUESTO
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
@@ -267,14 +267,15 @@
 		
 		\vspace{0.4cm}
 
-		% INFORMACIÓN DE CONTACTO
+		% INFORMACIÓN DE CONTACTO - CON PARBOX PARA DIRECCIÓN LARGA
 		\begin{minipage}{\linewidth}
 			\renewcommand{\arraystretch}{1.2}
-			\begin{tabular}{p{0.5cm} @{\hskip 0.3cm}p{4.7cm}}
+			\setlength{\tabcolsep}{2pt}
+			\begin{tabular}{p{0.6cm} @{\hskip 0.2cm}p{4.6cm}}
 				\ifx\@cvcedula\empty\else\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\@cvcedula\\\fi
 				\ifx\@cvnacionalidad\empty\else\textsc{\tiny\icon{\faFlag}} & \footnotesize\@cvnacionalidad\\\fi
 				\ifx\@cvfecha\empty\else\textsc{\tiny\icon{\faCalendar}} & \footnotesize\@cvfecha\\\fi
-				\ifx\@cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\@cvdireccion\\\fi
+				\ifx\@cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\parbox{4.6cm}{\raggedright\@cvdireccion}\\\fi
 				\ifx\@cvtelefono\empty\else\textsc{\tiny\icon{\faPhone}} & \footnotesize\@cvtelefono\\\fi
 				\ifx\@cvsitio\empty\else\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\@cvsitio}{\@cvsitio}\\\fi
 				\ifx\@cvemail\empty\else\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\@cvemail}{\@cvemail}\\\fi
