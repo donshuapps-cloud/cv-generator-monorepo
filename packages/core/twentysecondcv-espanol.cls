@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Curriculum Vitae Timeline/CV - Versión en Español
-% Versión: 8.0 - CORREGIDA (manejo de foto opcional)
+% Versión: 8.5 - FINAL (corregido: foto, nombre y puesto)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ProvidesClass{twentysecondcv-espanol}[2024/01/08 CV class en Español]
+\ProvidesClass{twentysecondcv-espanol}[2024/03/22 CV class en Español]
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
@@ -107,33 +107,33 @@
 \newboolean{cv@perfil}
 \setboolean{cv@perfil}{false}
 
-% COMANDOS PARA INFORMACIÓN PERSONAL - CORREGIDOS
-\newcommand{\cvnombre}[1]{\def\cvnombre{#1}}
-\newcommand{\cvpuesto}[1]{\def\cvpuesto{#1}}
-\newcommand{\cvcedula}[1]{\def\cvcedula{#1}}
-\newcommand{\cvnacionalidad}[1]{\def\cvnacionalidad{#1}}
-\newcommand{\cvfecha}[1]{\def\cvfecha{#1}}
-\newcommand{\cvdireccion}[1]{\def\cvdireccion{#1}}
-\newcommand{\cvtelefono}[1]{\def\cvtelefono{#1}}
-\newcommand{\cvemail}[1]{\def\cvemail{#1}}
-\newcommand{\cvsitio}[1]{\def\cvsitio{#1}}
-\newcommand{\cvgithub}[1]{\def\cvgithub{#1}}
-\newcommand{\cvlinkedin}[1]{\def\cvlinkedin{#1}}
-\newcommand{\fotoperfil}[1]{\def\fotoperfil{#1}}
+% COMANDOS PARA INFORMACIÓN PERSONAL
+\newcommand{\cvnombre}[1]{\def\@cvnombre{#1}}
+\newcommand{\cvpuesto}[1]{\def\@cvpuesto{#1}}
+\newcommand{\cvcedula}[1]{\def\@cvcedula{#1}}
+\newcommand{\cvnacionalidad}[1]{\def\@cvnacionalidad{#1}}
+\newcommand{\cvfecha}[1]{\def\@cvfecha{#1}}
+\newcommand{\cvdireccion}[1]{\def\@cvdireccion{#1}}
+\newcommand{\cvtelefono}[1]{\def\@cvtelefono{#1}}
+\newcommand{\cvemail}[1]{\def\@cvemail{#1}}
+\newcommand{\cvsitio}[1]{\def\@cvsitio{#1}}
+\newcommand{\cvgithub}[1]{\def\@cvgithub{#1}}
+\newcommand{\cvlinkedin}[1]{\def\@cvlinkedin{#1}}
+\newcommand{\fotoperfil}[1]{\def\@fotoperfil{#1}}
 
 % Valores por defecto
-\def\cvnombre{}
-\def\cvpuesto{}
-\def\cvcedula{}
-\def\cvnacionalidad{}
-\def\cvfecha{}
-\def\cvdireccion{}
-\def\cvtelefono{}
-\def\cvemail{}
-\def\cvsitio{}
-\def\cvgithub{}
-\def\cvlinkedin{}
-\def\fotoperfil{}
+\def\@cvnombre{}
+\def\@cvpuesto{}
+\def\@cvcedula{}
+\def\@cvnacionalidad{}
+\def\@cvfecha{}
+\def\@cvdireccion{}
+\def\@cvtelefono{}
+\def\@cvemail{}
+\def\@cvsitio{}
+\def\@cvgithub{}
+\def\@cvlinkedin{}
+\def\@fotoperfil{}
 
 % Comandos para secciones de texto
 \newcommand{\sobremi}[2]{\setboolean{cv@sobremi}{true}\renewcommand{\sobremi}{%
@@ -208,7 +208,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	 CONSTRUCCIÓN DE LA BARRA LATERAL - CORREGIDA
+%	 CONSTRUCCIÓN DE LA BARRA LATERAL - VERSIÓN CORREGIDA
 %----------------------------------------------------------------------------------------
 
 \newcommand{\crearperfil}{
@@ -218,15 +218,15 @@
 
 	\begin{textblock}{6}(0.5, 0.1)
 			
-		% Foto de perfil - CORREGIDO: verifica que no esté vacío
-		\ifx\fotoperfil\empty
-			% No hay foto, mostrar placeholder
+		% Foto de perfil - CORREGIDO
+		\ifx\@fotoperfil\empty
+			% No hay foto, mostrar círculo vacío con icono
 			\begin{center}
 				\begin{minipage}{0.9\linewidth}
 					\begin{center}
-						\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-							\clip (600/2, 567/2) circle (567/2);
-							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{placeholder}};
+						\begin{tikzpicture}
+							\draw[fill=white, draw=mainblue, line width=2pt] (0,0) circle (1.8cm);
+							\node at (0,0) {\fontsize{50}{60}\selectfont\color{mainblue}\faUser};
 						\end{tikzpicture}
 					\end{center}
 				\end{minipage}
@@ -237,50 +237,53 @@
 					\begin{center}
 						\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 							\clip (600/2, 567/2) circle (567/2);
-							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\fotoperfil}};
+							\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\@fotoperfil}};
 						\end{tikzpicture}
 					\end{center}
 				\end{minipage}
 			\end{center}
 		\fi
-		\vspace{0.2cm}
+		\vspace{0.3cm}
 
-		% Nombre y puesto
+		% NOMBRE - CORREGIDO
 		\begin{center}
 			\begin{minipage}{0.95\linewidth}
 				\begin{center}
-					{\Large\color{mainblue}\cvnombre\par}
-				\end{center}
-			\end{minipage}
-			
-			\vspace{0.15cm}
-			
-			\begin{minipage}{0.95\linewidth}
-				\begin{center}
-					{\large\color{black!80}\cvpuesto\par}
+					{\Huge\bfseries\color{mainblue}\@cvnombre\par}
 				\end{center}
 			\end{minipage}
 		\end{center}
 		
-		\vspace{0.3cm}
+		\vspace{0.2cm}
+		
+		% PUESTO - CORREGIDO
+		\begin{center}
+			\begin{minipage}{0.95\linewidth}
+				\begin{center}
+					{\Large\color{black!80}\@cvpuesto\par}
+				\end{center}
+			\end{minipage}
+		\end{center}
+		
+		\vspace{0.4cm}
 
 		% INFORMACIÓN DE CONTACTO
 		\begin{minipage}{\linewidth}
-			\renewcommand{\arraystretch}{1.1}
-			\begin{tabular}{p{0.4cm} @{\hskip 0.3cm}p{4.8cm}}
-				\ifx\cvcedula\empty\else\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\cvcedula\\\fi
-				\ifx\cvnacionalidad\empty\else\textsc{\tiny\icon{\faFlag}} & \footnotesize\cvnacionalidad\\\fi
-				\ifx\cvfecha\empty\else\textsc{\tiny\icon{\faCalendar}} & \footnotesize\cvfecha\\\fi
-				\ifx\cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\cvdireccion\\\fi
-				\ifx\cvtelefono\empty\else\textsc{\tiny\icon{\faPhone}} & \footnotesize\cvtelefono\\\fi
-				\ifx\cvsitio\empty\else\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\cvsitio}{\cvsitio}\\\fi
-				\ifx\cvemail\empty\else\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\cvemail}{\cvemail}\\\fi
-				\ifx\cvgithub\empty\else\textsc{\tiny\icon{\faGithub}} & \footnotesize\href{https://www.github.com/\cvgithub}{\cvgithub}\\\fi
-				\ifx\cvlinkedin\empty\else\textsc{\tiny\icon{\faLinkedin}} & \footnotesize\href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin}\fi
+			\renewcommand{\arraystretch}{1.2}
+			\begin{tabular}{p{0.5cm} @{\hskip 0.3cm}p{4.7cm}}
+				\ifx\@cvcedula\empty\else\textsc{\tiny\icon{\faFolderOpen}} & \footnotesize\@cvcedula\\\fi
+				\ifx\@cvnacionalidad\empty\else\textsc{\tiny\icon{\faFlag}} & \footnotesize\@cvnacionalidad\\\fi
+				\ifx\@cvfecha\empty\else\textsc{\tiny\icon{\faCalendar}} & \footnotesize\@cvfecha\\\fi
+				\ifx\@cvdireccion\empty\else\textsc{\tiny\icon{\faGlobe}} & \footnotesize\@cvdireccion\\\fi
+				\ifx\@cvtelefono\empty\else\textsc{\tiny\icon{\faPhone}} & \footnotesize\@cvtelefono\\\fi
+				\ifx\@cvsitio\empty\else\textsc{\tiny\icon{\faUser}} & \footnotesize\href{\@cvsitio}{\@cvsitio}\\\fi
+				\ifx\@cvemail\empty\else\textsc{\tiny\icon{\faAt}} & \footnotesize\href{mailto:\@cvemail}{\@cvemail}\\\fi
+				\ifx\@cvgithub\empty\else\textsc{\tiny\icon{\faGithub}} & \footnotesize\href{https://www.github.com/\@cvgithub}{\@cvgithub}\\\fi
+				\ifx\@cvlinkedin\empty\else\textsc{\tiny\icon{\faLinkedin}} & \footnotesize\href{https://www.linkedin.com/in/\@cvlinkedin}{\@cvlinkedin}\fi
 			\end{tabular}
 		\end{minipage}
 		
-		\vspace{0.3cm}
+		\vspace{0.4cm}
 
 		% Secciones de texto
 		\ifthenelse{\boolean{cv@perfil}}{
